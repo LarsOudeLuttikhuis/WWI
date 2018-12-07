@@ -20,7 +20,6 @@
                 <button type="submit" class="btn btn-primary">Login</button>
                 </form>
             </div>
-            <p class="botto-text"> Designed by Sunil Rajput</p>
         </div>
     </div>  
 </div>
