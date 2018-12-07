@@ -18,7 +18,7 @@
       <a class="navbar-brand" href="#">WebSiteName</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
+      <li><a href="home.php">Home</a></li>
       <li><a href="#">Contact</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
