@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="opmaak/artikelen.css" />
 
 <div class="container">
-    <h3 class="h3">Nieuwe artikelen </h3>
+    <h3 class="h3">Mokken </h3>
     <div class="row">
         <div class="col-md-3 col-sm-6">
             <div class="product-grid">

@@ -15,7 +15,7 @@
                 </a>
         </div>
 		<div class="col-lg-2 col-md-4 col-xs-6 thumb ">
-                <a class="thumbnail" href="#">
+                <a class="thumbnail" href="kleding.php">
 					<img class="img-responsive" src="http://image.kudo.co.id/wp-content/uploads/2015/10/fashion.png" alt="">
                     <div class="wrapper">
                         <div class="caption post-content">
@@ -25,7 +25,7 @@
                 </a>
         </div> 
 		<div class="col-lg-2 col-md-4 col-xs-6 thumb ">
-                <a class="thumbnail" href="#">
+                <a class="thumbnail" href="mokken.php">
                     <img class="img-responsive" src="http://image.kudo.co.id/wp-content/uploads/2015/10/hijab.png" alt="">
                     <div class="wrapper">
                         <div class="caption post-content">
@@ -35,7 +35,7 @@
                 </a>
         </div>
 		<div class="col-lg-2 col-md-4 col-xs-6 thumb ">
-                <a class="thumbnail" href="#">
+                <a class="thumbnail" href="t-shirts.php">
 					<img class="img-responsive" src="http://image.kudo.co.id/wp-content/uploads/2015/10/makanandaerah.png" alt="">
                     <div class="wrapper">
                         <div class="caption post-content">
@@ -47,7 +47,7 @@
         </div>
 
         <div class="col-lg-2 col-md-4 col-xs-6 thumb ">
-                <a class="thumbnail" href="#">
+                <a class="thumbnail" href="luchtvaartaccessoires.php">
 					<img class="img-responsive" src="http://image.kudo.co.id/wp-content/uploads/2015/10/tiket.png" alt="">
                     <div class="wrapper">
                         <div class="caption post-content">
@@ -61,7 +61,7 @@
 
 <div class="row category-child" style="margin-top:20px">
         <div class="col-lg-2 col-md-4 col-xs-6 thumb ">
-                <a class="thumbnail" href="productoverzicht.php">
+                <a class="thumbnail" href="computertoebehoren.php">
 					<img class="img-responsive" src="http://image.kudo.co.id/wp-content/uploads/2015/10/holiday.png" alt="">
                     <div class="wrapper">
                         <div class="caption post-content">
@@ -74,7 +74,7 @@
  
     
     <div class="col-lg-2 col-md-4 col-xs-6 thumb ">
-                <a class="thumbnail" href="#">
+                <a class="thumbnail" href="usbaccessoires.php">
 					<img class="img-responsive" src="http://image.kudo.co.id/wp-content/uploads/2015/10/holiday.png" alt="">
                     <div class="wrapper">
                         <div class="caption post-content">
@@ -85,17 +85,17 @@
         </div>
   
     <div class="col-lg-2 col-md-4 col-xs-6 thumb ">
-                <a class="thumbnail" href="#">
+                <a class="thumbnail" href="bonteschoeisel.php">
 					<img class="img-responsive" src="http://image.kudo.co.id/wp-content/uploads/2015/10/holiday.png" alt="">
                     <div class="wrapper">
                         <div class="caption post-content">
-                            <span>Bonten schoensel</span>        
+                            <span>Bonte schoeisel</span>        
                         </div>
                     </div>
                 </a>
         </div>
         <div class="col-lg-2 col-md-4 col-xs-6 thumb ">
-                <a class="thumbnail" href="#">
+                <a class="thumbnail" href="speelgoed.php">
 					<img class="img-responsive" src="http://image.kudo.co.id/wp-content/uploads/2015/10/holiday.png" alt="">
                     <div class="wrapper">
                         <div class="caption post-content">
@@ -105,11 +105,11 @@
                 </a>
         </div>
         <div class="col-lg-2 col-md-4 col-xs-6 thumb ">
-                <a class="thumbnail" href="#">
+                <a class="thumbnail" href="verpakkingsmateriaal.php">
 					<img class="img-responsive" src="http://image.kudo.co.id/wp-content/uploads/2015/10/holiday.png" alt="">
                     <div class="wrapper">
                         <div class="caption post-content">
-                            <span>Verpakkings materiaal</span>        
+                            <span>Verpakkingsmateriaal</span>        
                         </div>
                     </div>
                 </a>
