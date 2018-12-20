@@ -1,4 +1,5 @@
 <?php include 'navbar.php'; ?>
+<?php include 'Functions/login-back.php'?>
 <div class="container">
     <div class="row">
         <div class="col-lg-6">
@@ -8,7 +9,7 @@
                     <div class="panel">
                         <p>Please enter your email and password</p>
                     </div>
-                    <form id="Login">
+                    <form id="Login" action="login.php">
                         <div class="form-group">
                             <input type="email" class="form-control" id="inputEmail" placeholder="Email Address">
                         </div>
@@ -30,57 +31,62 @@
                     <div class="panel">
                         <p>Please enter your email and password</p>
                     </div>
-                    <form id="Login">
+                    <form id="Login" method="get" action="login.php">
                         <div class="row form-group">
                             <div class="col-lg-5">
-                                <input type="Voornaam" class="form-control" id="inputEmail" placeholder="Voornaam">
+                                <input type="text" class="form-control" id="inputEmail" placeholder="Voornaam">
                             </div>
                             <div class="col-lg-2">
-                                <input type="Tussenvoegsel" class="form-control" id="inputPassword" placeholder="Tussenvoegsel">
+                                <input type="text" class="form-control" id="inputPassword" placeholder="Tussenvoegsel">
                             </div>
                             <div class="col-lg-5">
-                                <input type="Achternaam" class="form-control" id="inputPassword" placeholder="Achternaam">
+                                <input type="text" class="form-control" id="inputPassword" placeholder="Achternaam">
                             <br/>
                             </div> 
                             <div class="col-lg-12">
-                                <input type="Telefoon" class="form-control" id="inputTelefoon" placeholder="Telefoon"> 
+                                <input type="text" class="form-control" id="inputTelefoon" placeholder="Telefoon"> 
                             </div>
                         </div>
                         <div class="row form-group">
                             <div class="col-lg-12">
-                                <input type="Straat" class="form-control" id="inputStraat" placeholder="Straat">
+                                <input type="text" class="form-control" id="inputStraat" placeholder="Straat">
                                 <br/>
                             </div>
                             <div class="col-lg-12">
-                                <input type="Huisnummer" class="form-control" id="inputHuisnummer" placeholder="Huisnummer"> 
+                                <input type="text" class="form-control" id="inputHuisnummer" placeholder="Huisnummer"> 
                                 <br/>
                             </div>
                             <div class="col-lg-12">
-                                <input type="Postcode" class="form-control" id="inputPostcode" placeholder="Postcode">  
+                                <input type="text" class="form-control" id="inputPostcode" placeholder="Postcode">  
                                 <br/>
                             </div>
                             <div class="col-lg-12">
-                                <input type="Plaats" class="form-control" id="inputPlaats" placeholder="Plaats"> 
-                                <br/>
+                                <input type="text" class="form-control" id="inputPlaats" placeholder="Plaats"> 
                             </div>
                         </div>
                         <div class="row form-group">
                             <div class="col-lg-12">
-                                <input type="Email" class="form-control" id="inputPlaats" placeholder="Email"> 
+                                <input type="text" class="form-control" id="inputEmail" placeholder="Email"> 
                                 <br/>
                             </div>
+                            <label><?php $message ?></label>
                             <div class="col-lg-6">
-                                <input type="Wachtwoord" class="form-control" id="inputPlaats" placeholder="Wachtwoord"> 
+                                <input type="password" class="form-control" id="inputWachtwoord" placeholder="Wachtwoord"> 
                             </div>
                             <div class="col-lg-6">
-                                <input type="Wachtwoord" class="form-control" id="inputPlaats" placeholder="Wachtwoord"> 
+                                <input type="password" class="form-control" id="inputWachtwoord2" placeholder="Wachtwoord"> 
                             </div>
+                            <?php print($melding); ?>
                         </div>
                      <br>
-                        <button type="submit" class="btn btn-primary">Registreer</button>
+                        <button name="submit" type="submit" class="btn btn-primary">Registreer</button>
                     </form>
                     </div>
                 </div>
     </div>
 </div>
+<form name="form" action="" method="get">
+  <input type="text" name="subject" id="subject" value="Car Loan">
+</form>
+<?php passwordCheck(); ?>
 <?php include 'footer.php'; ?>
