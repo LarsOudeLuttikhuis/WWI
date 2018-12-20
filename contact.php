@@ -1,5 +1,5 @@
 <?php include 'navbar.php';
-include 'contact_back.php'; ?>
+include 'Functions/contact_back.php'; ?>
 
 <div class="container-fluid">
 	<div class="col-lg-6">

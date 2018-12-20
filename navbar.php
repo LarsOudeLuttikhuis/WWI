@@ -22,7 +22,6 @@
       <li><a href="contact.php">Contact</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="Registreer.php"><span class="glyphicon glyphicon-user"></span>Registreer</a></li>
       <li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
     </ul>
   </div>
