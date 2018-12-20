@@ -19,7 +19,8 @@
     </div>
     <ul class="nav navbar-nav">
       <li><a href="home.php">Home</a></li>
-      <li><a href="#">Contact</a></li>
+      <li><a href="contact.php">Contact</a></li>
+      <li><a href="category.php">Category</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
