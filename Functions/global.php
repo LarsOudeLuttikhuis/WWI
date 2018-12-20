@@ -1,22 +1,39 @@
 <?php
-print("hallo");
+include 'sql.php';
+$melding = "";
+$vraagBevestiging = true;
+$gegevens = filter_input_array(INPUT_GET, FILTER_SANITIZE_STRING);
+$producten = array();
+$catagorieën = array();
 
-function maakVerbinding()
-{
-    $servername = "localhost:3306";
-    $username = "admin";
-    $password = "admin";
-    $dbname = "sakila";
-// Create connection
-    $conn = mysqli_connect($servername, $username, $password, $dbname, 3307);
-// Check connection
-    if (!$conn) {
-        print("Connection failed: " . mysqli_connect_error());
-    } else {
-        print("connenction succesfull.");
-    }
-    
+function ProductenOverzichtBekijken() {
+    global $producten;
+    maakConnectiePDO();
+    $producten = SelecteerProducten();
+    sluitConnectiePDO();
 }
-print("klaar");
-maakVerbinding();
-?> 
+
+function CatagarieOverzichtBekijken() {
+    global $catagorieën;
+    maakConnectiePDO();
+    $catagorieën = SelecteerProducten();
+    sluitConnectiePDO();
+}
+function ToonProducten() {
+    global $producten;
+    foreach ($producten as $product) {
+        print("\n\t<tr>");
+        print("\n\t\t<td>".$product["StockItemName"]."</td>");
+        print("\n\t\t<td>".$product["RecommendedRetailPrice"]."</td>");
+        print("\n\t</tr>");
+    }
+}
+function ToonCatagorie() {
+    global $catagorieën;
+    foreach ($catagorieën as $catagorie) {
+        print("\n\t<tr>");
+        print("\n\t\t<td>".$catagorie["StockItemName"]."</td>");
+        print("\n\t\t<td>".$catagorie["RecommendedRetailPrice"]."</td>");
+        print("\n\t</tr>");
+    }
+}

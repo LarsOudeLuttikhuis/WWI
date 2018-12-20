@@ -1,22 +1,26 @@
 <?php
 include 'navbar.php';
-
-$servername = "192.168.64.2";
-$username = "admin";
-$password = "admin";
-$dbname = "";
-// Create connection
-$conn = new mysqli($servername, $username, $password);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
-echo "Connected successfully";
-
-$sql = "SELECT * FROM wideworldimporters.stockitems WHERE StockItemID = 22";
-$sth = $conn->query($sql);
-$result = mysqli_fetch_array($sth);
-echo $result['Photo'];
+include 'Functions/global.php';
+ProductenOverzichtBekijken();
+?>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Klantenoverzicht</title>
+    </head>
+    <body>
+        <form method="get" action="overzicht.php">
+            <table>
+                <tr><th>Nr</th><th>Naam</th><th>Woonplaats</th></tr>
+                <?php ToonProducten(); ?>
+                <tr>
+                    <td><input type="text" name="nummer" size="4" value=""></td>
+                    <td><input type="text" name="naam" value=""></td>
+                    <td><input type="text" name="woonplaats" value=""></td>
+                    <td><input type="submit" name="toevoegen" value="Toevoegen"></td>
+                </tr>
+            </table>
+        </form>
+        <?php print($melding); 
 include 'footer.php';
 ?>
