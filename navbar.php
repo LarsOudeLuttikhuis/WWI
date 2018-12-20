@@ -20,6 +20,8 @@
     <ul class="nav navbar-nav">
       <li><a href="home.php">Home</a></li>
       <li><a href="contact.php">Contact</a></li>
+
+      <li><a href="category.php">Category</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
