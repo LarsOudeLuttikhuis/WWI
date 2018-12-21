@@ -6,7 +6,7 @@
 	<div class="row category-child" style="margin-top:20px">
 		<div class="col-lg-2 col-md-4 col-xs-6 thumb ">
                 <a class="thumbnail" href="nieuweartikelen.php">
-                <img class="pic-1" src="http://bestjquery.com/tutorial/product-grid/demo9/images/img-7.jpg">
+                <img src="nieuw.jpg" alt="Italian Trulli">
                     <div class="wrapper">
                         <div class="caption post-content">
                             <span>nieuwe artikelen</span>
@@ -62,7 +62,7 @@
 <div class="row category-child" style="margin-top:20px">
         <div class="col-lg-2 col-md-4 col-xs-6 thumb ">
                 <a class="thumbnail" href="computertoebehoren.php">
-                <img class="pic-1" src="http://bestjquery.com/tutorial/product-grid/demo9/images/img-7.jpg">
+                <img src="comp.jpg" alt="Italian Trulli">
                     <div class="wrapper">
                         <div class="caption post-content">
                             <span>Computer toebehoren</span>        
@@ -75,7 +75,7 @@
     
     <div class="col-lg-2 col-md-4 col-xs-6 thumb ">
                 <a class="thumbnail" href="usbaccessoires.php">
-                <img class="pic-1" src="http://bestjquery.com/tutorial/product-grid/demo9/images/img-7.jpg">
+                <img src="usb.jpg" alt="Italian Trulli">
                     <div class="wrapper">
                         <div class="caption post-content">
                             <span>USB accessoires</span>        
@@ -86,7 +86,7 @@
   
     <div class="col-lg-2 col-md-4 col-xs-6 thumb ">
                 <a class="thumbnail" href="bonteschoeisel.php">
-                <img class="pic-1" src="http://bestjquery.com/tutorial/product-grid/demo9/images/img-7.jpg">
+                <img src="ugg.jpg" alt="Italian Trulli">
                     <div class="wrapper">
                         <div class="caption post-content">
                             <span>Bonte schoeisel</span>        
@@ -96,7 +96,7 @@
         </div>
         <div class="col-lg-2 col-md-4 col-xs-6 thumb ">
                 <a class="thumbnail" href="speelgoed.php">
-                <img class="pic-1" src="https://www.planethappy.nl/resize/30398_17520010732582.jpg/0/1100/True/brio-speelgoed-boerderij.jpg">
+                <img src="speelgoed1.jpg" alt="Italian Trulli">
                 <div class="wrapper">
                         <div class="caption post-content">
                             <span>Speelgoed</span>        
@@ -106,7 +106,7 @@
         </div>
         <div class="col-lg-2 col-md-4 col-xs-6 thumb ">
                 <a class="thumbnail" href="verpakkingsmateriaal.php">
-                <img src="brio-speelgoed-boerderij.jpg" alt="Italian Trulli">
+                <img src="verpakkings.jpg" alt="Italian Trulli">
                     <div class="wrapper">
                         <div class="caption post-content">
                             <span>Verpakkingsmateriaal</span>        
