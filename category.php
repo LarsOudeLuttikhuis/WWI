@@ -6,17 +6,17 @@
 	<div class="row category-child" style="margin-top:20px">
 		<div class="col-lg-2 col-md-4 col-xs-6 thumb ">
                 <a class="thumbnail" href="nieuweartikelen.php">
-                    <img class="img-responsive" src="http://kudo.co.id/wp-pictures/product/example/woven_che_white.jpg" alt="">
+                    <img class="img-responsive" src="" alt="">
                     <div class="wrapper">
                         <div class="caption post-content">
-                            <span>nieuwe artikelen</span>
+                            <span>Nieuwe artikelen</span>
                         </div>
                     </div>
                 </a>
         </div>
 		<div class="col-lg-2 col-md-4 col-xs-6 thumb ">
                 <a class="thumbnail" href="kleding.php">
-					<img class="img-responsive" src="http://image.kudo.co.id/wp-content/uploads/2015/10/fashion.png" alt="">
+					<img class="img-responsive" src="kleding.jpg" alt="">
                     <div class="wrapper">
                         <div class="caption post-content">
                             <span>Kleding</span>        
@@ -26,7 +26,7 @@
         </div> 
 		<div class="col-lg-2 col-md-4 col-xs-6 thumb ">
                 <a class="thumbnail" href="mokken.php">
-                    <img class="img-responsive" src="http://image.kudo.co.id/wp-content/uploads/2015/10/hijab.png" alt="">
+                    <img class="img-responsive" src="mok.jpg" alt="">
                     <div class="wrapper">
                         <div class="caption post-content">
                             <span>Mokken</span>        
@@ -36,7 +36,7 @@
         </div>
 		<div class="col-lg-2 col-md-4 col-xs-6 thumb ">
                 <a class="thumbnail" href="t-shirts.php">
-					<img class="img-responsive" src="http://image.kudo.co.id/wp-content/uploads/2015/10/makanandaerah.png" alt="">
+					<img class="img-responsive" src="tshirt.jpg" alt="">
                     <div class="wrapper">
                         <div class="caption post-content">
                             <span>T-shirts</span>        
@@ -48,7 +48,7 @@
 
         <div class="col-lg-2 col-md-4 col-xs-6 thumb ">
                 <a class="thumbnail" href="luchtvaartaccessoires.php">
-					<img class="img-responsive" src="http://image.kudo.co.id/wp-content/uploads/2015/10/tiket.png" alt="">
+					<img class="img-responsive" src="https://giftskikker.onetoshop.nl/picdb/v5/823/825644.jpg" alt="""height="240" width="250">
                     <div class="wrapper">
                         <div class="caption post-content">
                             <span>Luchtvaart accessoires</span>        

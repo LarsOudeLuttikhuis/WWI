@@ -3,8 +3,8 @@ $connectie = NULL;
 $resultaat = NULL;
 function maakConnectiePDO() {
     global $connectie;
-    $dsn = "mysql:host=192.168.64.2;dbname=wideworldimporters;";
-    $connectie = new PDO($dsn, 'admin', 'admin');
+    $dsn = "mysql:host=localhost;dbname=wideworldimporters;";
+    $connectie = new PDO($dsn, 'root', '');
 }
 
 function SelecteerProducten() {
