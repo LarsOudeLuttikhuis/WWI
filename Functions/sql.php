@@ -17,6 +17,7 @@ if (!function_exists('SelecteerProducten')) {
         $resultaat->execute();
         return $resultaat->fetchAll();
     }
+
 }
 
 if (!function_exists('SelecteerCategorieën')) {
