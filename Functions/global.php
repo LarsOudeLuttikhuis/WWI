@@ -36,7 +36,7 @@ function ToonProducten() {
             print(" </a>");
             print("</div>");
             print("<div class='product-content'>");
-            print("<h3 class='title'><a href='#.php'>".$product["StockItemName"]."</a></h3>");
+            print("<h3 class='title'><a href='product.php/id=".$product["StockItemID"]."'>".$product["StockItemName"]."</a></h3>");
             print("</div>");
             print("</div>");
             print("</div>");

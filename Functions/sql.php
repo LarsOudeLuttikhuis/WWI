@@ -10,7 +10,6 @@ if (!function_exists('maakConnectiePDO')) {
     }
 }
 
-
 if (!function_exists('SelecteerProducten')) {
     function SelecteerProducten($ID) {
         global $connectie, $resultaat;
