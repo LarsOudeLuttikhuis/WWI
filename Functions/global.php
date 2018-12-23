@@ -6,6 +6,7 @@ $gegevens = filter_input_array(INPUT_GET, FILTER_SANITIZE_STRING);
 $producten = array();
 $catagorieën = array(); 
 $klanten = array(); 
+$product = array();
 
 function ProductenOverzichtBekijken($CatogarieID) {
     global $producten;
@@ -36,7 +37,7 @@ function ToonProducten() {
             print(" </a>");
             print("</div>");
             print("<div class='product-content'>");
-            print("<h3 class='title'><a href='product.php/id=".$product["StockItemID"]."'>".$product["StockItemName"]."</a></h3>");
+            print("<h3 class='title'><a href='product.php?id=".$product["StockItemID"]."'>".$product["StockItemName"]."</a></h3>");
             print("</div>");
             print("</div>");
             print("</div>");
@@ -80,5 +81,35 @@ function ToonCatagorieën() {
             print("</div>");
             $teller += 1;
     }
+    echo "</div>";
+}
+
+function ProductOverzichtBekijken($ProductID) {
+    global $product;
+    maakConnectiePDO();
+    $product = SelecteerProduct($ProductID);
+    sluitConnectiePDO();
+}
+
+function ToonProduct() {
+    global $product;
+    echo "<div class='row'>";
+    echo "<div class='col-md-1'></div>";
+    echo "</div>";
+    echo "<br/>\n<br/>\n<br/>\n";
+    echo "<div class='row'>";
+    echo "<div class='col-md-1'></div>";
+    echo "<div class='col-md-2'>";
+    echo "<div class='product-grid'>";
+    echo "<div class='product-image'>";
+    echo "<a href='#.php'>";
+    echo "<img class='pic-1' src='images/240x250.png'>";
+    echo " </a>";
+    echo "</div>";
+    echo "<div class='product-content'>";
+    echo "<h3 class='title'><a href='#'>".$product["StockItemName"]."</a></h3>";
+    echo "</div>";
+    echo "</div>";
+    echo "</div>";
     echo "</div>";
 }
