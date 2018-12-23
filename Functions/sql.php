@@ -10,7 +10,6 @@ if (!function_exists('maakConnectiePDO')) {
     }
 }
 
-
 if (!function_exists('SelecteerProducten')) {
     function SelecteerProducten($ID) {
         global $connectie, $resultaat;
@@ -18,7 +17,6 @@ if (!function_exists('SelecteerProducten')) {
         $resultaat->execute();
         return $resultaat->fetchAll();
     }
-
 }
 
 if (!function_exists('SelecteerCategorieën')) {
@@ -27,6 +25,15 @@ if (!function_exists('SelecteerCategorieën')) {
         $resultaat = $connectie->prepare("SELECT * FROM stockgroups;");
         $resultaat->execute();
         return $resultaat->fetchAll();
+    }
+}
+
+if (!function_exists('SelecteerProduct')) {
+    function SelecteerProduct($ProductID) {
+        global $connectie, $resultaat;
+        $resultaat = $connectie->prepare("SELECT * FROM stockitems WHERE StockItemID = ".$ProductID.";");
+        $resultaat->execute();
+        return $resultaat->fetch();
     }
 }
 
