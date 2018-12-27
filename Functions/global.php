@@ -134,13 +134,13 @@ function ToonProduct() {
     }
 
     
-function homeproduct() {
-    global $homeproduct;
+function home() {
+    global $home;
     $teller = 0;
     $firstTime = true;
     echo "<div class='row'>";
     print("<div class='col-md-1'></div>");
-    foreach ($producten as $homeproduct) {
+    foreach ($producten as $home) {
         if($teller % 5 == 0 && $firstTime == false){
             echo "</div>";
             echo "<br/>\n<br/>\n<br/>\n";
@@ -156,7 +156,7 @@ function homeproduct() {
             print(" </a>");
             print("</div>");
             print("<div class='product-content'>");
-            print("<h3 class='title'><a href='product.php?id=".$homeproduct["StockItemID"]."'>".$homeproduct["StockItemName"]."</a></h3>");
+            print("<h3 class='title'><a href='product.php?id=".$home["StockItemID"]."'>".$home["StockItemName"]."</a></h3>");
             print("</div>");
             print("</div>");
             print("</div>");

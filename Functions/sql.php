@@ -38,11 +38,11 @@ if (!function_exists('SelecteerProduct')) {
 }
 
 if (!function_exists('homeproduct')) {
-    function homeproduct($homeproduct) {
+    function homeproduct($home) {
         global $connectie, $resultaat;
         $resultaat = $connectie->prepare("SELECT stockitemid, stockitemname, recommendedretailprice, photo, searchdetails, marketingcomments
 FROM wideworldimporters.stockitems
-where StockItemName like '%chocola%'  = ".$homeproduct.";");
+where StockItemName like '%chocola%'  = ".$home.";");
         $resultaat->execute();
         return $resultaat->fetchAll();
     }
