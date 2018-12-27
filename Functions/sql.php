@@ -37,6 +37,17 @@ if (!function_exists('SelecteerProduct')) {
     }
 }
 
+if (!function_exists('homeproduct')) {
+    function homeproduct($homeproduct) {
+        global $connectie, $resultaat;
+        $resultaat = $connectie->prepare("SELECT stockitemid, stockitemname, recommendedretailprice, photo, searchdetails, marketingcomments
+FROM wideworldimporters.stockitems
+where StockItemName like '%chocola%'  = ".$homeproduct.";");
+        $resultaat->execute();
+        return $resultaat->fetchAll();
+    }
+}
+
 if (!function_exists('sluitConnectiePDO')) {
     function sluitConnectiePDO() {
         global $connectie, $resultaat;
