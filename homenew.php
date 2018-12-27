@@ -1,6 +1,3 @@
-<?php include 'navbar.php';?>
-<?php include 'footer.php';?>
-
 <?php
 $connectie = NULL;
 $resultaat = NULL;
@@ -31,5 +28,4 @@ if (!function_exists('sluitConnectiePDO')) {
         $connectie = null;
     }    
 }
-
 
