@@ -5,8 +5,8 @@ $resultaat = NULL;
 if (!function_exists('maakConnectiePDO')) {
         function maakConnectiePDO() {
         global $connectie;
-        $dsn = "mysql:host=localhost;dbname=wideworldimporters;";
-        $connectie = new PDO($dsn, 'root', "");
+        $dsn = "mysql:host=192.168.64.2;dbname=wideworldimporters;";
+        $connectie = new PDO($dsn, 'admin', "admin");
     }
 }
 
@@ -37,12 +37,10 @@ if (!function_exists('SelecteerProduct')) {
     }
 }
 
-if (!function_exists('homeproduct')) {
-    function homeproduct($home) {
+if (!function_exists('HomeProduct')) {
+    function HomeProduct() {
         global $connectie, $resultaat;
-        $resultaat = $connectie->prepare("SELECT stockitemid, stockitemname, recommendedretailprice, photo, searchdetails, marketingcomments
-FROM wideworldimporters.stockitems
-where StockItemName like '%chocola%'  = ".$home.";");
+        $resultaat = $connectie->prepare("SELECT * FROM wideworldimporters.stockitems where StockItemName like '%chocola%' And SupplierID = 1;");
         $resultaat->execute();
         return $resultaat->fetchAll();
     }

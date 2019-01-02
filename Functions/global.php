@@ -131,32 +131,38 @@ function ToonProduct() {
             echo "</div>";
         echo "</div>";
     echo "</div>";
-    }
+}
 
-    
-function home() {
-    global $home;
+function HomeProductenOverzichtBekijken() {
+    global $producten;
+    maakConnectiePDO();
+    $producten = HomeProduct();
+    sluitConnectiePDO();
+}
+
+function ToonHomeProducten() {
+    global $producten;
     $teller = 0;
     $firstTime = true;
     echo "<div class='row'>";
     print("<div class='col-md-1'></div>");
-    foreach ($producten as $home) {
-        if($teller % 5 == 0 && $firstTime == false){
+    foreach ($producten as $catagorie) {
+        if($teller % 4 == 0 && $firstTime == false){
             echo "</div>";
             echo "<br/>\n<br/>\n<br/>\n";
             echo "<div class='row'>";
             print("<div class='col-md-1'></div>");
         }
             $firstTime = false;
-            print("<div class='col-md-2'>");
+            print("<div class='col-md-1'>");
             print("<div class='product-grid'>");
             print("<div class='product-image'>");
-            print("<a href='#.php'>");
-            print("<img class='pic-1' src='images/240x250.png'>");
+            print("<a href='".$catagorie["StockGroupName"].".php'>");
+            print("<img class='pic-1' src='images/".$catagorie["StockGroupName"].".jpg'>");
             print(" </a>");
             print("</div>");
             print("<div class='product-content'>");
-            print("<h3 class='title'><a href='product.php?id=".$home["StockItemID"]."'>".$home["StockItemName"]."</a></h3>");
+            print("<h3 class='title'><a href='".$catagorie["StockGroupName"].".php'>".$catagorie["StockGroupName"]."</a></h3>");
             print("</div>");
             print("</div>");
             print("</div>");
