@@ -11,9 +11,9 @@ if (!function_exists('maakConnectiePDO')) {
 }
 
 if (!function_exists('SelecteerProducten')) {
-    function SelecteerProducten($ID) {
+    function SelecteerProducten($CiD) {
         global $connectie, $resultaat;
-        $resultaat = $connectie->prepare("SELECT * FROM stockitems  JOIN stockitemstockgroups ON stockitems.StockItemID = stockitemstockgroups.StockItemID JOIN stockgroups ON stockitemstockgroups.StockGroupID = stockgroups.StockGroupID WHERE  stockgroups.StockGroupID = ".$ID.";");
+        $resultaat = $connectie->prepare("SELECT * FROM stockitems  JOIN stockitemstockgroups ON stockitems.StockItemID = stockitemstockgroups.StockItemID JOIN stockgroups ON stockitemstockgroups.StockGroupID = stockgroups.StockGroupID WHERE  stockgroups.StockGroupID = ".$CiD.";");
         $resultaat->execute();
         return $resultaat->fetchAll();
     }

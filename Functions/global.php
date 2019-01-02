@@ -10,10 +10,10 @@ $product = array();
 
 
 
-function ProductenOverzichtBekijken($CatogarieID) {
+function ProductenOverzichtBekijken($CiD) {
     global $producten;
     maakConnectiePDO();
-    $producten = SelecteerProducten($CatogarieID);
+    $producten = SelecteerProducten($CiD);
     sluitConnectiePDO();
 }
 
@@ -39,7 +39,7 @@ function ToonProducten() {
             print(" </a>");
             print("</div>");
             print("<div class='product-content'>");
-            print("<h3 class='title'><a href='product.php?id=".$product["StockItemID"]."'>".$product["StockItemName"]."</a></h3>");
+            print("<h3 class='title'><a href='product.php?Pid=".$product["StockItemID"]."'>".$product["StockItemName"]."</a></h3>");
             print("</div>");
             print("</div>");
             print("</div>");
@@ -72,12 +72,12 @@ function ToonCatagorieën() {
             print("<div class='col-md-2'>");
             print("<div class='product-grid'>");
             print("<div class='product-image'>");
-            print("<a href='".$catagorie["StockGroupName"].".php'>");
+            print("<a href='producten.php?Cid=".$catagorie["StockGroupID"].".php'>");
             print("<img class='pic-1' src='images/".$catagorie["StockGroupName"].".jpg'>");
             print(" </a>");
             print("</div>");
             print("<div class='product-content'>");
-            print("<h3 class='title'><a href='".$catagorie["StockGroupName"].".php'>".$catagorie["StockGroupName"]."</a></h3>");
+            print("<h3 class='title'><a href='producten.php?Cid=".$catagorie["StockGroupID"]."'>".$catagorie["StockGroupName"]."</a></h3>");
             print("</div>");
             print("</div>");
             print("</div>");
@@ -86,10 +86,10 @@ function ToonCatagorieën() {
     echo "</div>";
 }
 
-function ProductOverzichtBekijken($ProductID) {
+function ProductOverzichtBekijken($PiD) {
     global $product;
     maakConnectiePDO();
-    $product = SelecteerProduct($ProductID);
+    $product = SelecteerProduct($PiD);
     sluitConnectiePDO();
 }
 
