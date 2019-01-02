@@ -146,23 +146,23 @@ function ToonHomeProducten() {
     $firstTime = true;
     echo "<div class='row'>";
     print("<div class='col-md-1'></div>");
-    foreach ($producten as $catagorie) {
+    foreach ($producten as $product) {
         if($teller % 4 == 0 && $firstTime == false){
             echo "</div>";
             echo "<br/>\n<br/>\n<br/>\n";
             echo "<div class='row'>";
-            print("<div class='col-md-1'></div>");
+            print("<div class='col-md-2'></div>");
         }
             $firstTime = false;
-            print("<div class='col-md-1'>");
+            print("<div class='col-md-2'>");
             print("<div class='product-grid'>");
             print("<div class='product-image'>");
-            print("<a href='".$catagorie["StockGroupName"].".php'>");
-            print("<img class='pic-1' src='images/".$catagorie["StockGroupName"].".jpg'>");
+            print("<a href='".$product["StockItemName"].".php'>");
+            print("<img class='pic-1' src='images/".$product["StockItemName"].".jpg'>");
             print(" </a>");
             print("</div>");
             print("<div class='product-content'>");
-            print("<h3 class='title'><a href='".$catagorie["StockGroupName"].".php'>".$catagorie["StockGroupName"]."</a></h3>");
+            print("<h3 class='title'><a href='".$product["StockItemName"].".php'>".$product["StockItemName"]."</a></h3>");
             print("</div>");
             print("</div>");
             print("</div>");
