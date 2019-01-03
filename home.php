@@ -59,7 +59,7 @@ include_once 'Functions/global.php';
                     <li><i class="fa fa-check"></i> Lorem Ipsum is simply dummy text</li>
                     <li><i class="fa fa-check"></i> Lorem Ipsum is simply dummy text</li>
                 </ul>
-                <a href="#" class="btn btn-primary rounded-0 mb-2"> Read More</a>
+                <a href="choco.php" class="btn btn-primary rounded-0 mb-2"> Read More</a>
             </div>
             <div class="col-md-4 mt-5">
                 <img class="card-img-top" src="images/homechoco.jpg" alt="Card image cap">

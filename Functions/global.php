@@ -34,7 +34,7 @@ function ToonProducten() {
             print("<div class='col-md-2'>");
             print("<div class='product-grid'>");
             print("<div class='product-image'>");
-            print("<a href='product.php?Pid'>");
+            print("<a href='product.php?Pid=".$product["StockItemID"]."'>");
             print("<img class='pic-1' src='images/240x250.png'>");
             print(" </a>");
             print("</div>");
