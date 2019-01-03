@@ -72,7 +72,7 @@ function ToonCatagorieën() {
             print("<div class='col-md-2'>");
             print("<div class='product-grid'>");
             print("<div class='product-image'>");
-            print("<a href='producten.php?Cid=".$catagorie["StockGroupID"].".php'>");
+            print("<a href='producten.php?Cid=".$catagorie["StockGroupID"]."'>");
             print("<img class='pic-1' src='images/".$catagorie["StockGroupName"].".jpg'>");
             print(" </a>");
             print("</div>");
