@@ -145,7 +145,7 @@ function ToonHomeProducten() {
     $teller = 0;
     $firstTime = true;
     echo "<div class='row'>";
-    print("<div class='col-md-1'></div>");
+    print("<div class='col-md-2'></div>");
     foreach ($producten as $product) {
         if($teller % 4 == 0 && $firstTime == false){
             echo "</div>";
