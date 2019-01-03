@@ -34,7 +34,7 @@ function ToonProducten() {
             print("<div class='col-md-2'>");
             print("<div class='product-grid'>");
             print("<div class='product-image'>");
-            print("<a href='product.php?Pid'>");
+            print("<a href='product.php?Pid=".$product["StockItemID"]."'>");
             print("<img class='pic-1' src='images/240x250.png'>");
             print(" </a>");
             print("</div>");
@@ -72,7 +72,7 @@ function ToonCatagorieën() {
             print("<div class='col-md-2'>");
             print("<div class='product-grid'>");
             print("<div class='product-image'>");
-            print("<a href='producten.php?Cid=".$catagorie["StockGroupID"].".php'>");
+            print("<a href='producten.php?Cid=".$catagorie["StockGroupID"]."'>");
             print("<img class='pic-1' src='images/".$catagorie["StockGroupName"].".jpg'>");
             print(" </a>");
             print("</div>");
@@ -145,7 +145,7 @@ function ToonHomeProducten() {
     $teller = 0;
     $firstTime = true;
     echo "<div class='row'>";
-    print("<div class='col-md-1'></div>");
+    print("<div class='col-md-2'></div>");
     foreach ($producten as $product) {
         if($teller % 4 == 0 && $firstTime == false){
             echo "</div>";
@@ -157,12 +157,12 @@ function ToonHomeProducten() {
             print("<div class='col-md-2'>");
             print("<div class='product-grid'>");
             print("<div class='product-image'>");
-            print("<a href='".$product["StockItemName"].".php'>");
-            print("<img class='pic-1' src='images/".$product["StockItemName"].".jpg'>");
+            print("<a href='product.php?Pid=".$product["StockItemID"]."'>");
+            print("<img class='pic-1' src='images/240x250.png'>");
             print(" </a>");
             print("</div>");
             print("<div class='product-content'>");
-            print("<h3 class='title'><a href='".$product["StockItemName"].".php'>".$product["StockItemName"]."</a></h3>");
+            print("<h3 class='title'><a href='product.php?Pid=".$product["StockItemID"].".php'>".$product["StockItemName"]."</a></h3>");
             print("</div>");
             print("</div>");
             print("</div>");
