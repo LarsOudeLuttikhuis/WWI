@@ -157,12 +157,12 @@ function ToonHomeProducten() {
             print("<div class='col-md-2'>");
             print("<div class='product-grid'>");
             print("<div class='product-image'>");
-            print("<a href='".$product["StockItemName"].".php'>");
+            print("<a href='product.php?Pid=".$product["StockItemID"]."'>");
             print("<img class='pic-1' src='images/".$product["StockItemName"].".jpg'>");
             print(" </a>");
             print("</div>");
             print("<div class='product-content'>");
-            print("<h3 class='title'><a href='".$product["StockItemName"].".php'>".$product["StockItemName"]."</a></h3>");
+            print("<h3 class='title'><a href='product.php?Pid=".$product["StockItemID"].".php'>".$product["StockItemName"]."</a></h3>");
             print("</div>");
             print("</div>");
             print("</div>");

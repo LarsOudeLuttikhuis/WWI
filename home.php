@@ -71,11 +71,6 @@ include_once 'Functions/global.php';
        
 
     
-    <?php
-
-HomeProductenOverzichtBekijken(1);
-ToonHomeProducten(); 
-print($melding); 
-sluitConnectiePDO();
+<?php
 include 'footer.php';
 ?>
