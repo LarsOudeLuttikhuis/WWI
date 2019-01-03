@@ -158,7 +158,7 @@ function ToonHomeProducten() {
             print("<div class='product-grid'>");
             print("<div class='product-image'>");
             print("<a href='product.php?Pid=".$product["StockItemID"]."'>");
-            print("<img class='pic-1' src='images/".$product["StockItemName"].".jpg'>");
+            print("<img class='pic-1' src='images/240x250.png'>");
             print(" </a>");
             print("</div>");
             print("<div class='product-content'>");
