@@ -14,7 +14,7 @@ include_once 'Functions/global.php';
                     <div class="card-block p-3">
                         <h4 class="card-title">Novelty Chilli Chocolates</h4>
                         <p class="card-text"></p>
-                        <a href="product.php?Pid=220" class="btn btn-primary rounded-0 mb-2">Read More</a>
+                        <a href="product.php?Pid=220" class="btn btn-primary rounded-0 mb-2">Go To</a>
                     </div>
                 </div>
             </div>
@@ -24,7 +24,7 @@ include_once 'Functions/global.php';
                     <div class="card-block p-3">
                         <h4 class="card-title">White Chocolate Moon Rocks</h4>
                         <p class="card-text"></p>
-                        <a href="product.php?Pid=227" class="btn btn-primary rounded-0 mb-2">Read More</a>
+                        <a href="product.php?Pid=227" class="btn btn-primary rounded-0 mb-2">Go To</a>
                     </div>
                 </div>
             </div>
@@ -34,7 +34,7 @@ include_once 'Functions/global.php';
                     <div class="card-block p-3">
                         <h4 class="card-title">Chocolate Sharks</h4>
                         <p class="card-text"></p>
-                        <a href="product.php?Pid=225" class="btn btn-primary rounded-0 mb-2">Read More</a>
+                        <a href="product.php?Pid=225" class="btn btn-primary rounded-0 mb-2">Go To</a>
                     </div>
                 </div>
             </div>
