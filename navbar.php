@@ -28,6 +28,7 @@
     <input type="text" name="query" />
     <input type="submit" value="Search" />
 </form></li>
+<li><a href="klantpagina.php">Customer</a></li>
 
       
     </ul>
