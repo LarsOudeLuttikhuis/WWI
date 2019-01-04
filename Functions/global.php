@@ -103,6 +103,7 @@ function ToonProduct() {
             echo "<div class='col-md-3'>";
                 echo "<img class='img-rounded' src='images/100x150.png' width='200' heigth='300'>";
                 echo "<br/>";
+                echo "<br/>";
                 echo "<img class='img-rounded' src='images/100x150.png'>"; 
                 echo " ";
                 echo "<img class='img-rounded' src='images/100x150.png'>";
@@ -124,7 +125,29 @@ function ToonProduct() {
                     echo "<h3 class='title'>€".$product["UnitPrice"]."</h3>"; 
                 echo "</div>";   
                 echo "<div class='col-md-4>";
+                ?>
 #aantal code
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Aantal</h2>
+
+<form>
+  <select name="aantal">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+  </select>
+  <br><br>
+  <input type="submit">
+</form>
+
+</body>
+</html>
+
+<?php
                 echo "</div>";
                 echo "<div class='col-md-4>";
 #totaal prijs code 
