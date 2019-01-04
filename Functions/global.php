@@ -100,13 +100,8 @@ function ToonProduct() {
             echo "<h3 class='title'>".$product["StockItemName"]."</h3>";
         echo "</div>";
         echo "<div class='row'>";
-            echo "<div class='col-md-6'>";
+            echo "<div class='col-md-3'>";
                 echo "<img class='img-rounded' src='images/100x150.png' width='200' heigth='300'>";
-            echo "</div>";
-            echo "<div class='col-md-6'>";
-                echo "<iframe  width='450' height='300' src='https://www.youtube.com/embed/MrYbBcvdzIY' align=right valing=right' frameborder='0' allowfullscreen></iframe>";
-            echo "</div>";
-            echo "<div class='col-md-7'>";
                 echo "<br/>";
                 echo "<img class='img-rounded' src='images/100x150.png'>"; 
                 echo " ";
@@ -117,10 +112,22 @@ function ToonProduct() {
                 echo " ";
                 echo "<img class='img-rounded' src='images/100x150.png'>";
             echo "</div>";
+            echo "<div class='col-md-4'>";
+                echo "<h3 class='title'>".$product["StockItemName"]."</h3>";
+            echo "</div>";
             echo "<div class='col-md-5'>";
-                echo "<div class='col-md-10'></div>";
-                echo "<div class='col-md-2'>";
-                    echo "<h3 class='title'>€".$product["UnitPrice"]."</h3>";
+                echo "<div class='row'>";
+                    echo "<iframe  width='100%' height='300' src='https://www.youtube.com/embed/MrYbBcvdzIY' align=right valing=right' frameborder='0' allowfullscreen></iframe>";
+                echo "</div>";
+                echo "<div class='row'>";
+                echo "<div class='col-md-4>";
+                    echo "<h3 class='title'>€".$product["UnitPrice"]."</h3>"; 
+                echo "</div>";   
+                echo "<div class='col-md-4>";
+#aantal code
+                echo "</div>";
+                echo "<div class='col-md-4>";
+#totaal prijs code 
                 echo "</div>";
             echo "</div>";
         echo "</div>";
