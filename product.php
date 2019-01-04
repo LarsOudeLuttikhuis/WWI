@@ -25,7 +25,7 @@ sluitConnectiePDO();
     <option value="10">10</option>
   </select>
   <br><br>
-  <input type="submit" value="Add to chart">
+  <input type="submit" value="Add to cart">
 </form>
 </div>
 </body>
