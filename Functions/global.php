@@ -7,7 +7,7 @@ $producten = array();
 $catagorieën = array();
 $klanten = array();
 $product = array();
-
+$gegevens = filter_input_array(INPUT_GET, FILTER_SANITIZE_STRING);
 
 
 function ProductenOverzichtBekijken($CiD)
@@ -41,7 +41,8 @@ function ToonProducten()
         print(" </a>");
         print("</div>");
         print("<div class='product-content'>");
-        print("<h3 class='title'><a href='product.php?id=" . $product["StockItemID"] . "'>" . $product["StockItemName"] . "</a></h3> <input type='submit' name='add_to_cart' style='margin-top:5px;' class='btn btn-success' value='In winkelwagen' />");
+        print("<h3 class='title'><a href='product.php?id=" . $product["StockItemID"] . "'>" . $product["StockItemName"] . "</a></h3>");
+        print( "<h3 class='title'><a class='btn btn-success' href=\"bevestiging.php?nummer=".$product["StockItemID"]."\">In Winkelwagen</a></h3>");
         print("</div>");
         print("</div>");
         print("</div>");
@@ -111,7 +112,9 @@ function ToonProduct()
     echo "<div class='col-md-5'>";
     echo "<div class='product-content'>";
     echo "<div class='product-content'>";
-    echo "<h3 class='title'><a href='#'>".$product["StockItemName"]."</a></h3><input type='submit' name='add_to_cart' style='margin-top:5px;' class='btn btn-success' value='In winkelwagen' />";   
+    echo "<h3 class='title'><a href='#'>".$product["StockItemName"]."</a></h3>";
+    echo "<h3 class='title'><a href='#'>".$product["StockItemID"]."</a></h3>";
+    print( "<h3 class='title'><a class='btn btn-success' href=\"bevestiging.php?nummer=".$product["StockItemID"]."\">In Winkelwagen</a></h3>");   
     echo "</div>";
     echo "<br/>";
     echo "<div class='row'>";
@@ -176,4 +179,20 @@ function ToonHomeProducten()
         $teller += 1;
     }
     echo "</div>";
+}
+
+//add product in shoppincart
+function ToonWinkelWagen() {
+    global $gegevens, $melding;
+    if (!empty($gegevens["nummer"])) {
+        maakConnectiePDO(); 
+        $gegevens = SelecteerProduct($gegevens["nummer"]);
+        sluitConnectiePDO();
+    } else {
+        $melding = "Het nummer ontbreekt";
+    }
+}
+
+function CheckFormControl($naam) {
+    return filter_has_var(INPUT_GET, $naam);
 }
