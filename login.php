@@ -1,3 +1,4 @@
+<?php include 'Functions/global.php'; ?>
 <?php include 'navbar.php'; ?>
 <?php include 'Functions/login.php'?>
 <?php include 'Functions/sql.php'?>
@@ -6,11 +7,11 @@
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     # Controleren of het login formulier is gebruikt 
     if (isset($_POST['loginFormulier'])) {
-        print('loginform is aangeklikt.000');
+        print('loginform is aangeklikt.');
         if (isset($_POST['inputEmail']) && isset($_POST['inputPassword'])){
             $email = $_POST["inputEmail"];
             $pass = hash("md5", $_POST["inputPassword"]);
-            CheckLogin2($email, $pass);
+            CheckLogin($email, $pass);
         }
     # Anders het registreerformulier afhandelen
     } else {
@@ -18,8 +19,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 ?>
-
-
 
 
 <div class="container">
@@ -53,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <div class="panel">
                         <p>Please enter your email and password</p>
                     </div>
-                    <form id="Login" method="post" action="register.php">
+                    <form id="Login" method="post" action="registeer_gebruiker.php">
                         <div class="row form-group">
                             <div class="col-lg-5">
                                 <input type="text" class="form-control" name="inputVoornaam" placeholder="Voornaam">
@@ -98,7 +97,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             <div class="col-lg-6">
                                 <input type="password" class="form-control" name="inputWachtwoord2" placeholder="Wachtwoord"> 
                             </div>
-                            <!-- <?php #print($melding); ?> -->
+                          
                         </div>
                      <br>
                         <button name="submit" type="submit" class="btn btn-primary">Registreer</button>
