@@ -120,7 +120,7 @@ function ToonProduct() {
                 echo "<img class='img-rounded' src='images/100x150.png'>";
             echo "</div>";
             echo "<div class='col-md-4'>";
-                echo "<h3 class='title'>".$product["StockItemName"]."</h3>";
+                echo "<h3 class='title'>Omschrijving</h3>";
             echo "</div>";
             echo "<div class='col-md-5'>";
                 echo "<div class='row'>";
