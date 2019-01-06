@@ -1,5 +1,27 @@
 <?php include 'navbar.php'; ?>
-<?php include 'Functions/login-back.php'?>
+<?php include 'Functions/login.php'?>
+<?php include 'Functions/sql.php'?>
+<?php
+# Controleren of er input is vanuit de pagina.
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    # Controleren of het login formulier is gebruikt 
+    if (isset($_POST['loginFormulier'])) {
+        print('loginform is aangeklikt.000');
+        if (isset($_POST['inputEmail']) && isset($_POST['inputPassword'])){
+            $email = $_POST["inputEmail"];
+            $pass = hash("md5", $_POST["inputPassword"]);
+            CheckLogin2($email, $pass);
+        }
+    # Anders het registreerformulier afhandelen
+    } else {
+        //assume btnSubmit
+    }
+}
+?>
+
+
+
+
 <div class="container">
     <div class="row">
         <div class="col-lg-6">
@@ -9,17 +31,17 @@
                     <div class="panel">
                         <p>Please enter your email and password</p>
                     </div>
-                    <form id="Login" action="login.php">
+                    <form id="Login" method="post" action="login.php">
                         <div class="form-group">
-                            <input type="email" class="form-control" id="inputEmail" placeholder="Email Address">
+                            <input type="email" class="form-control" name="inputEmail" placeholder="Email Address">
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control" id="inputPassword" placeholder="Password">   
+                            <input type="password" class="form-control" name="inputPassword" placeholder="Password">   
                         </div>
                         <div class="forgot">
                             <a href="reset.html">Forgot password?</a>
                         </div>
-                        <button type="submit" class="btn btn-primary">Login</button>
+                        <button type="submit" name="loginFormulier" class="btn btn-primary">Login</button>
                     </form>
                     </div>
                 </div>
@@ -31,52 +53,52 @@
                     <div class="panel">
                         <p>Please enter your email and password</p>
                     </div>
-                    <form id="Login" method="get" action="login.php">
+                    <form id="Login" method="post" action="register.php">
                         <div class="row form-group">
                             <div class="col-lg-5">
-                                <input type="text" class="form-control" id="inputEmail" placeholder="Voornaam">
+                                <input type="text" class="form-control" name="inputVoornaam" placeholder="Voornaam">
                             </div>
                             <div class="col-lg-2">
-                                <input type="text" class="form-control" id="inputPassword" placeholder="Tussenvoegsel">
+                                <input type="text" class="form-control" name="inputTussenvoegsel" placeholder="Tussenvoegsel">
                             </div>
                             <div class="col-lg-5">
-                                <input type="text" class="form-control" id="inputPassword" placeholder="Achternaam">
+                                <input type="text" class="form-control" name="inputAchternaam" placeholder="Achternaam">
                             <br/>
                             </div> 
                             <div class="col-lg-12">
-                                <input type="text" class="form-control" id="inputTelefoon" placeholder="Telefoon"> 
+                                <input type="text" class="form-control" name="inputTelefoon" placeholder="Telefoon"> 
                             </div>
                         </div>
                         <div class="row form-group">
                             <div class="col-lg-12">
-                                <input type="text" class="form-control" id="inputStraat" placeholder="Straat">
+                                <input type="text" class="form-control" name="inputStraat" placeholder="Straat">
                                 <br/>
                             </div>
                             <div class="col-lg-12">
-                                <input type="text" class="form-control" id="inputHuisnummer" placeholder="Huisnummer"> 
+                                <input type="text" class="form-control" name="inputHuisnummer" placeholder="Huisnummer"> 
                                 <br/>
                             </div>
                             <div class="col-lg-12">
-                                <input type="text" class="form-control" id="inputPostcode" placeholder="Postcode">  
+                                <input type="text" class="form-control" name="inputPostcode" placeholder="Postcode">  
                                 <br/>
                             </div>
                             <div class="col-lg-12">
-                                <input type="text" class="form-control" id="inputPlaats" placeholder="Plaats"> 
+                                <input type="text" class="form-control" name="inputPlaats" placeholder="Plaats"> 
                             </div>
                         </div>
                         <div class="row form-group">
                             <div class="col-lg-12">
-                                <input type="text" class="form-control" id="inputEmail" placeholder="Email"> 
+                                <input type="text" class="form-control" name="inputEmail" placeholder="Email"> 
                                 <br/>
                             </div>
                             <label><?php $message ?></label>
                             <div class="col-lg-6">
-                                <input type="password" class="form-control" id="inputWachtwoord" placeholder="Wachtwoord"> 
+                                <input type="password" class="form-control" name="inputWachtwoord" placeholder="Wachtwoord"> 
                             </div>
                             <div class="col-lg-6">
-                                <input type="password" class="form-control" id="inputWachtwoord2" placeholder="Wachtwoord"> 
+                                <input type="password" class="form-control" name="inputWachtwoord2" placeholder="Wachtwoord"> 
                             </div>
-                            <?php print($melding); ?>
+                            <!-- <?php #print($melding); ?> -->
                         </div>
                      <br>
                         <button name="submit" type="submit" class="btn btn-primary">Registreer</button>
@@ -88,5 +110,5 @@
 <form name="form" action="" method="get">
   <input type="text" name="subject" id="subject" value="Car Loan">
 </form>
-<?php passwordCheck(); ?>
+
 <?php include 'footer.php'; ?>
