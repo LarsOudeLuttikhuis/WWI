@@ -29,8 +29,6 @@
     <input type="submit" value="Search" />
 </form></li>
 <li><a href="klantpagina.php">Customer</a></li>
-
-      
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li><a href="Winkelwagen.php">Winkelwagen <img class='pic-1' src='images/Winkelwagen.jpg'width='25' height='25'></a></li>
