@@ -8,7 +8,7 @@ $producten = array();
 $catagorieën = array();
 $klanten = array();
 $product = array();
-
+$gegevens = filter_input_array(INPUT_GET, FILTER_SANITIZE_STRING);
 
 
 function ProductenOverzichtBekijken($CiD)
@@ -42,7 +42,8 @@ function ToonProducten()
         print(" </a>");
         print("</div>");
         print("<div class='product-content'>");
-        print("<h3 class='title'><a href='product.php?Pid=" . $product["StockItemID"] . "'>" . $product["StockItemName"] . "</a></h3> <input type='submit' name='add_to_cart' style='margin-top:5px;' class='btn btn-success' value='In winkelwagen' />");
+        print("<h3 class='title'><a href='product.php?id=" . $product["StockItemID"] . "'>" . $product["StockItemName"] . "</a></h3>");
+        print( "<h3 class='title'><a class='btn btn-success' href=\"bevestiging.php?nummer=".$product["StockItemID"]."\">In Winkelwagen</a></h3>");
         print("</div>");
         print("</div>");
         print("</div>");
@@ -102,44 +103,41 @@ function ProductOverzichtBekijken($PiD)
 function ToonProduct() {
     global $product;
     echo "<div class='container'>";
-        echo "<div class='row'>";
-            echo "<h3 class='title'>".$product["StockItemName"]."</h3>";
-        echo "</div>";
-        echo "<div class='row'>";
-            echo "<div class='col-md-3'>";
-                echo "<img class='img-rounded' src='images/100x150.png' width='200' heigth='300'>";
-                echo "<br/>";
-                echo "<br/>";
-                echo "<img class='img-rounded' src='images/100x150.png'>"; 
-                echo " ";
-                echo "<img class='img-rounded' src='images/100x150.png'>";
-                echo "<br/>";
-                echo "<br/>";
-                echo "<img class='img-rounded' src='images/100x150.png'>";
-                echo " ";
-                echo "<img class='img-rounded' src='images/100x150.png'>";
-            echo "</div>";
-            echo "<div class='col-md-4'>";
-                echo "<h3 class='title'>Omschrijving</h3>";
-            echo "</div>";
-            echo "<div class='col-md-5'>";
-                echo "<div class='row'>";
-                    echo "<iframe  width='100%' height='300' src='https://www.youtube.com/embed/MrYbBcvdzIY' align=right valing=right' frameborder='0' allowfullscreen></iframe>";
-                echo "</div>";
-                echo "<div class='row'>";
-                    echo "<div class='col-md-4>";
-                        echo "<h3 class='title'>€".$product["UnitPrice"]."</h3>"; 
-                    echo "</div>";   
-                    echo "<div class='col-md-4>";
-                    echo "</div>";
-                    echo "<div class='col-md-4'>";
-                        echo "<div class='product-content'>";
-                            echo "</a></h3><input type='submit' name='add_to_cart' style='margin-top:5px;' class='btn btn-success' value='In winkelwagen' />";   
-                        echo "</div>";
-                    echo "</div>";
-                echo "</div>";
-            echo "</div>";
-        echo "</div>";
+    echo "<div class='row'>";
+    echo "<div class='col-md-5'>";
+    echo "<div class='product-image'>";
+    echo "<iframe  width='450' height='300' src='https://www.youtube.com/embed/MrYbBcvdzIY' frameborder='0' allowfullscreen></iframe>";
+    echo "</div>";
+    echo "</div>";
+    echo "<div class='col-md-5'>";
+    echo "<div class='product-content'>";
+    echo "<div class='product-content'>";
+    echo "<h3 class='title'><a href='#'>".$product["StockItemName"]."</a></h3>";
+    echo "<h3 class='title'><a href='#'>".$product["StockItemID"]."</a></h3>";
+    print( "<h3 class='title'><a class='btn btn-success' href=\"bevestiging.php?nummer=".$product["StockItemID"]."\">In Winkelwagen</a></h3>");   
+    echo "</div>";
+    echo "<br/>";
+    echo "<div class='row'>";
+    echo "<div class='col-md-5'>";
+    echo "<div class='product-image'>";
+    echo "<img class='img-rounded' src='images/100x150.png'>";
+    echo " ";
+    echo "<img class='img-rounded' src='images/100x150.png'>";
+    echo " ";
+    echo "<img class='img-rounded' src='images/100x150.png'>";
+    echo " ";
+    echo "<img class='img-rounded' src='images/100x150.png'>";
+    echo "</div>";
+    echo "</div>";
+    echo "<div class='col-md-5'>";
+    echo "<div class='product-content'>";
+    echo "<div class='col-md-10'></div>";
+    echo "<div class='col-md-2'>";
+    echo "<h3 class='title'>€" . $product["UnitPrice"] . "</h3>";
+    echo "</div>";
+    echo "</div>";
+    echo "</div>";
+    echo "</div>";
     echo "</div>";
 }
 
@@ -181,4 +179,20 @@ function ToonHomeProducten()
         $teller += 1;
     }
     echo "</div>";
+}
+
+//add product in shoppincart
+function ToonWinkelWagen() {
+    global $gegevens, $melding;
+    if (!empty($gegevens["nummer"])) {
+        maakConnectiePDO(); 
+        $gegevens = SelecteerProduct($gegevens["nummer"]);
+        sluitConnectiePDO();
+    } else {
+        $melding = "Het nummer ontbreekt";
+    }
+}
+
+function CheckFormControl($naam) {
+    return filter_has_var(INPUT_GET, $naam);
 }

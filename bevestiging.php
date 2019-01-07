@@ -1,3 +1,4 @@
+
 <?php
 include 'navbar.php';
 include_once 'Functions/global.php';
@@ -12,7 +13,7 @@ ToonWinkelWagen();
     if ($gegevens["StockItemID"] > 0) { ?>
 				<form method="post" action="winkelwagen.php?action=add&id=<?php echo $gegevens["StockItemID"]; ?>">
 						<h4 class="text-info"><?php echo $gegevens["StockItemName"]; ?></h4>
-						<h4 class="text-danger">$ <?php echo $gegevens["UnitPrice"]; ?></h4>
+						<h4 class="text-danger">€ <?php echo $gegevens["UnitPrice"]; ?></h4>
 						<input type="text" name="quantity" value="1" class="form-control" />
 						<input type="hidden" name="hidden_name" value="<?php echo $gegevens["StockItemName"]; ?>" />
 						<input type="hidden" name="hidden_price" value="<?php echo $gegevens["UnitPrice"]; ?>" />
@@ -25,5 +26,4 @@ ToonWinkelWagen();
 <?php
 sluitConnectiePDO();
 include 'footer.php';
-
 ?>
