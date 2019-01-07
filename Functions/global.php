@@ -1,5 +1,6 @@
 <?php
 include_once 'sql.php';
+session_start();
 $melding = "";
 $vraagBevestiging = true;
 $gegevens = filter_input_array(INPUT_GET, FILTER_SANITIZE_STRING);
@@ -99,8 +100,7 @@ function ProductOverzichtBekijken($PiD)
     sluitConnectiePDO();
 }
 
-function ToonProduct()
-{
+function ToonProduct() {
     global $product;
     echo "<div class='container'>";
     echo "<div class='row'>";

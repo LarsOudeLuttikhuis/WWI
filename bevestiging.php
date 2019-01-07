@@ -1,3 +1,4 @@
+
 <?php
 include 'navbar.php';
 include_once 'Functions/global.php';
@@ -25,5 +26,4 @@ ToonWinkelWagen();
 <?php
 sluitConnectiePDO();
 include 'footer.php';
-
 ?>
