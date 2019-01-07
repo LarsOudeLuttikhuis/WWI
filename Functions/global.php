@@ -42,7 +42,7 @@ function ToonProducten()
         print(" </a>");
         print("</div>");
         print("<div class='product-content'>");
-        print("<h3 class='title'><a href='product.php?id=" . $product["StockItemID"] . "'>" . $product["StockItemName"] . "</a></h3> <input type='submit' name='add_to_cart' style='margin-top:5px;' class='btn btn-success' value='In winkelwagen' />");
+        print("<h3 class='title'><a href='product.php?Pid=" . $product["StockItemID"] . "'>" . $product["StockItemName"] . "</a></h3> <input type='submit' name='add_to_cart' style='margin-top:5px;' class='btn btn-success' value='In winkelwagen' />");
         print("</div>");
         print("</div>");
         print("</div>");
