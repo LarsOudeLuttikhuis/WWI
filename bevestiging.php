@@ -11,7 +11,8 @@ ToonWinkelWagen();
     <div class="col-md-4">
     <?php
     if ($gegevens["StockItemID"] > 0) { ?>
-				<form method="post" action="winkelwagen.php?action=add&id=<?php echo $gegevens["StockItemID"]; ?>">
+				<form method="post" action="Winkelwagen.php?action=add&id=<?php echo $gegevens["StockItemID"]; ?>">
+						<img class='pic-1' src='images/240x250.png'>
 						<h4 class="text-info"><?php echo $gegevens["StockItemName"]; ?></h4>
 						<h4 class="text-danger">€ <?php echo $gegevens["UnitPrice"]; ?></h4>
 						<input type="text" name="quantity" value="1" class="form-control" />
