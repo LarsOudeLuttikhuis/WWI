@@ -56,6 +56,9 @@ function RegisterUser($inputVoornaam, $inputAchternaam, $inputTussenvoegsel, $in
         'pass' => $pass
     ]);
     sluitConnectiePDO();
+    $_SESSION["Voornaam"] = $inputVoornaam;
+    $_SESSION["Email"] = $inputEmail;
+    header('Location: home.php');
 }
 
 # Pas bestaande gebruiker aan
