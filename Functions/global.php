@@ -100,7 +100,8 @@ function ProductOverzichtBekijken($PiD)
     sluitConnectiePDO();
 }
 
-function ToonProduct() {
+function ToonProduct() 
+{
     global $product;
     echo "<div class='container'>";
         echo "<div class='row'>";
@@ -143,7 +144,7 @@ function ToonProduct() {
                 echo "</div>";
                 echo "</div>";
                 echo "<div class='col-md-4>";
-#totaal prijs code 
+                #totaal prijs code 
                 echo "</div>";
             echo "</div>";
         echo "</div>";
@@ -191,7 +192,8 @@ function ToonHomeProducten()
 }
 
 //add product in shoppincart
-function ToonWinkelWagen() {
+function ToonWinkelWagen() 
+{
     global $gegevens, $melding;
     if (!empty($gegevens["nummer"])) {
         maakConnectiePDO(); 
@@ -202,6 +204,7 @@ function ToonWinkelWagen() {
     }
 }
 
-function CheckFormControl($naam) {
+function CheckFormControl($naam) 
+{
     return filter_has_var(INPUT_GET, $naam);
 }
