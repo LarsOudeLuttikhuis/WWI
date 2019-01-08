@@ -100,7 +100,8 @@ function ProductOverzichtBekijken($PiD)
     sluitConnectiePDO();
 }
 
-function ToonProduct() {
+function ToonProduct() 
+{
     global $product;
     echo "<div class='container'>";
         echo "<div class='row'>";
@@ -128,18 +129,27 @@ function ToonProduct() {
                     echo "<iframe  width='100%' height='300' src='https://www.youtube.com/embed/MrYbBcvdzIY' align=right valing=right' frameborder='0' allowfullscreen></iframe>";
                 echo "</div>";
                 echo "<div class='row'>";
-                    echo "<div class='col-md-4>";
-                        echo "<h3 class='title'>€".$product["UnitPrice"]."</h3>"; 
-                    echo "</div>";   
-                    echo "<div class='col-md-4>";
-                    echo "<input type='text' name='quantity' value='1' />";
-                    echo "</div>";
-                    echo "<div class='col-md-4'>";
-                        echo "<div class='product-content'>";
-                            print( "<h3 class='title'><a class='btn btn-success' href='bevestiging.php?nummer=".$product["StockItemID"]."'>In Winkelwagen</a></h3>");  
-                        echo "</div>";
-                    echo "<div class='col-md-4>";
-                    #totaal prijs code 
+                echo "<table class='table'>";
+                echo "<tr>";
+                echo "<th><p style='text-align:center;'>€".$product["UnitPrice"]."</p></th>";
+                echo "<th><form style='text-align:center;'>";
+                echo "<select name='Quantity'>";
+                    echo "<option value='1'>1</option>";
+                    echo "<option value='2'>2</option>";
+                    echo "<option value='3'>3</option>";
+                    echo "<option value='4'>4</option>";
+                    echo "<option value='5'>5</option>";
+                    echo "<option value='6'>6</option>";
+                    echo "<option value='7'>7</option>";
+                    echo "<option value='8'>8</option>";
+                    echo "<option value='9'>9</option>";
+                    echo "<option value='10'>10</option>";
+                echo "</select>";
+                echo "</form>"; 
+                 echo "</th> ";
+                echo "<th style='text-align:center;'><a class='btn btn-success' href='bevestiging.php?nummer=".$product["StockItemID"]."'>In Winkelwagen</a></th>";
+                echo "</tr>";
+                echo "</table>";
                 echo "</div>";
             echo "</div>";
         echo "</div>";
@@ -187,7 +197,8 @@ function ToonHomeProducten()
 }
 
 //add product in shoppincart
-function ToonWinkelWagen() {
+function ToonWinkelWagen() 
+{
     global $gegevens, $melding;
     if (!empty($gegevens["nummer"])) {
         maakConnectiePDO(); 
@@ -198,6 +209,7 @@ function ToonWinkelWagen() {
     }
 }
 
-function CheckFormControl($naam) {
+function CheckFormControl($naam) 
+{
     return filter_has_var(INPUT_GET, $naam);
 }
