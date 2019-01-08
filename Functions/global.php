@@ -131,8 +131,8 @@ function ToonProduct()
                 echo "<div class='row'>";
                 echo "<table class='table'>";
                 echo "<tr>";
-                echo "<th><p style='text-align:center;'>€".$product["UnitPrice"]."</p></th>";
-                echo "<th><form style='text-align:center;'>";
+                echo "<th class='th'><p style='text-align:left;'>€".$product["UnitPrice"]."</p>";
+                echo "<form style='text-align:center;'>";
                 echo "<select name='Quantity'>";
                     echo "<option value='1'>1</option>";
                     echo "<option value='2'>2</option>";
@@ -147,7 +147,7 @@ function ToonProduct()
                 echo "</select>";
                 echo "</form>"; 
                  echo "</th> ";
-                echo "<th style='text-align:center;'><a class='btn btn-success' href='bevestiging.php?nummer=".$product["StockItemID"]."'>In Winkelwagen</a></th>";
+                echo "<th class='th'style='text-align:right;'><a class='btn btn-success' href='bevestiging.php?nummer=".$product["StockItemID"]."'>In Winkelwagen</a></th>";
                 echo "</tr>";
                 echo "</table>";
                 echo "</div>";
