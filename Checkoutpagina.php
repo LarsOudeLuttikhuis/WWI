@@ -72,11 +72,10 @@ if(isset($_GET["action"]))
                     echo"<div class='table-responsive'>";
                     echo"<table class='table table-bordered'>";                    
                     echo" <tr>";                    
-                    echo"<th width='40%'>Item Name</th>";                    
-                    echo"<th width='10%'>Quantity</th>";                    
+                    echo"<th width='30%'>Item Name</th>";                    
+                    echo"<th width='20%'>Quantity</th>";                    
                     echo"<th width='20%'>Price</th>";                    
-                    echo"<th width=15%>Total</th>";                    
-                    echo"<th width=5%>Action</th>";                    
+                    echo"<th width=15%>Total</th>";                                    
                     echo"</tr>";  
 					if(!empty($_SESSION["shopping_cart"]))
 					{
@@ -89,7 +88,6 @@ if(isset($_GET["action"]))
 						<td><?php echo $values["item_quantity"]; ?></td>
 						<td>€<?php echo $values["item_price"]; ?></td>
 						<td>€<?php echo number_format($values["item_quantity"] * $values["item_price"], 2);?></td>
-						<td><a href="winkelwagen.php?action=delete&id=<?php echo $values["item_id"]; ?>"><span class="text-danger">Remove</span></a></td>
 					</tr>
 					<?php
 							$total = $total + ($values["item_quantity"] * $values["item_price"]);
@@ -97,8 +95,7 @@ if(isset($_GET["action"]))
 					?>
 					<tr>
 						<td colspan="3" align="right">Total</td>
-						<td align="right">€<?php echo number_format($total, 2); ?></td>
-						<td></td>
+						<td align="left">€<?php echo number_format($total, 2); ?></td>
 					</tr>
 					<?php
                     }
@@ -182,7 +179,7 @@ if(isset($_GET["action"]))
                               <div class="col-md-3">
                               <div style="text-align:right;">
                               <div class="form-group row">
-                                <label for="email" class="col-4 col-form-label">Email*</label> 
+                                <label for="email" class="col-4 col-form-label">Total Quantity</label> 
                                 <div class="col-8">
                                   <input id="email" name="inputEmail" placeholder="Email" value="<?php print($email); ?>"class="form-control here" required="required" type="text">
                                 </div>
