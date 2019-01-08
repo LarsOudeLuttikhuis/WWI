@@ -6,7 +6,7 @@ if (!function_exists('maakConnectiePDO')) {
         function maakConnectiePDO() {
         global $connectie;
         $dsn = "mysql:host=localhost:3306;dbname=wideworldimporters;";
-        $connectie = new PDO($dsn, 'root', 'Welkom01!');
+        $connectie = new PDO($dsn, 'root', '');
         if ($connectie->connect_error) {
         die("Connection failed: " . $conn->connect_error);
         } 
