@@ -1,0 +1,57 @@
+-- MySQL dump 10.13  Distrib 5.7.24, for Linux (x86_64)
+--
+-- Host: localhost    Database: wideworldimporters
+-- ------------------------------------------------------
+-- Server version	5.5.5-10.1.36-MariaDB
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `colors`
+--
+
+DROP TABLE IF EXISTS `colors`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `colors` (
+  `ColorID` int(11) NOT NULL,
+  `ColorName` varchar(20) NOT NULL,
+  `LastEditedBy` int(11) NOT NULL,
+  `ValidFrom` datetime NOT NULL,
+  `ValidTo` datetime NOT NULL,
+  PRIMARY KEY (`ColorID`),
+  UNIQUE KEY `UQ_Warehouse_Colors_ColorName` (`ColorName`),
+  KEY `FK_Warehouse_Colors_Application_People` (`LastEditedBy`),
+  CONSTRAINT `FK_Warehouse_Colors_Application_People` FOREIGN KEY (`LastEditedBy`) REFERENCES `people` (`PersonID`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `colors`
+--
+
+LOCK TABLES `colors` WRITE;
+/*!40000 ALTER TABLE `colors` DISABLE KEYS */;
+INSERT INTO `colors` VALUES (1,'Azure',1,'2013-01-01 00:00:00','9999-12-31 23:59:59'),(2,'Beige',1,'2013-01-01 00:00:00','9999-12-31 23:59:59'),(3,'Black',1,'2013-01-01 00:00:00','9999-12-31 23:59:59'),(4,'Blue',1,'2013-01-01 00:00:00','9999-12-31 23:59:59'),(5,'Charcoal',1,'2013-01-01 00:00:00','9999-12-31 23:59:59'),(6,'Chartreuse',1,'2013-01-01 00:00:00','9999-12-31 23:59:59'),(7,'Cyan',1,'2013-01-01 00:00:00','9999-12-31 23:59:59'),(8,'Dark Brown',1,'2013-01-01 00:00:00','9999-12-31 23:59:59'),(9,'Dark Green',1,'2013-01-01 00:00:00','9999-12-31 23:59:59'),(10,'Fuchsia',1,'2013-01-01 00:00:00','9999-12-31 23:59:59'),(11,'Gold',1,'2013-01-01 00:00:00','9999-12-31 23:59:59'),(12,'Steel Gray',9,'2016-01-01 16:00:00','9999-12-31 23:59:59'),(13,'Hot Pink',1,'2013-01-01 00:00:00','9999-12-31 23:59:59'),(14,'Indigo',1,'2013-01-01 00:00:00','9999-12-31 23:59:59'),(15,'Ivory',1,'2013-01-01 00:00:00','9999-12-31 23:59:59'),(16,'Khaki',1,'2013-01-01 00:00:00','9999-12-31 23:59:59'),(17,'Lavender',1,'2013-01-01 00:00:00','9999-12-31 23:59:59'),(18,'Light Brown',1,'2013-01-01 00:00:00','9999-12-31 23:59:59'),(19,'Light Green',1,'2013-01-01 00:00:00','9999-12-31 23:59:59'),(20,'Maroon',1,'2013-01-01 00:00:00','9999-12-31 23:59:59'),(21,'Mauve',1,'2013-01-01 00:00:00','9999-12-31 23:59:59'),(22,'Navy Blue',1,'2013-01-01 00:00:00','9999-12-31 23:59:59'),(23,'Olive',1,'2013-01-01 00:00:00','9999-12-31 23:59:59'),(24,'Orange',1,'2013-01-01 00:00:00','9999-12-31 23:59:59'),(25,'Plum',1,'2013-01-01 00:00:00','9999-12-31 23:59:59'),(26,'Puce',1,'2013-01-01 00:00:00','9999-12-31 23:59:59'),(27,'Purple',1,'2013-01-01 00:00:00','9999-12-31 23:59:59'),(28,'Red',1,'2013-01-01 00:00:00','9999-12-31 23:59:59'),(29,'Royal Blue',1,'2013-01-01 00:00:00','9999-12-31 23:59:59'),(30,'Salmon',1,'2013-01-01 00:00:00','9999-12-31 23:59:59'),(31,'Silver',1,'2013-01-01 00:00:00','9999-12-31 23:59:59'),(32,'Tan',1,'2013-01-01 00:00:00','9999-12-31 23:59:59'),(33,'Teal',1,'2013-01-01 00:00:00','9999-12-31 23:59:59'),(34,'Wheat',1,'2013-01-01 00:00:00','9999-12-31 23:59:59'),(35,'White',1,'2013-01-01 00:00:00','9999-12-31 23:59:59'),(36,'Yellow',1,'2013-01-01 00:00:00','9999-12-31 23:59:59');
+/*!40000 ALTER TABLE `colors` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2019-01-08 19:51:38
