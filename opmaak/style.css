@@ -2,6 +2,14 @@
     min-height: calc(100vh - 70px);
 }
 
+.table {
+    width: 100%;
+}
+
+.th {
+    width: 33%;
+}
+
 .footer {
     height: 50px;
 }
