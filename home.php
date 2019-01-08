@@ -1,6 +1,6 @@
 <?php
 include 'navbar.php';
-include_once ($_SERVER['DOCUMENT_ROOT']."/Functions/global.php");
+include_once "./Functions/global.php");
 ?>
 
 

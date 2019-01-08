@@ -1,5 +1,6 @@
 <?php
 include_once 'sql.php';
+print ("test");
 session_start();
 $melding = "";
 $vraagBevestiging = true;
