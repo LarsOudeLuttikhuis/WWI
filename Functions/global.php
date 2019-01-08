@@ -42,7 +42,7 @@ function ToonProducten()
         print(" </a>");
         print("</div>");
         print("<div class='product-content'>");
-        print("<h3 class='title'><a href='product.php?id=" . $product["StockItemID"] . "'>" . $product["StockItemName"] . "</a></h3>");
+        print("<h3 class='title'><a href='product.php?Pid=" . $product["StockItemID"] . "'>" . $product["StockItemName"] . "</a></h3>");
         print( "<h3 class='title'><a class='btn btn-success' href=\"bevestiging.php?nummer=".$product["StockItemID"]."\">In Winkelwagen</a></h3>");
         print("</div>");
         print("</div>");
@@ -128,22 +128,18 @@ function ToonProduct() {
                     echo "<iframe  width='100%' height='300' src='https://www.youtube.com/embed/MrYbBcvdzIY' align=right valing=right' frameborder='0' allowfullscreen></iframe>";
                 echo "</div>";
                 echo "<div class='row'>";
-                echo "<div class='col-md-4>";
-                    echo "<h3 class='title'>€".$product["UnitPrice"]."</h3>"; 
-                echo "</div>";   
-                echo "<div class='col-md-4>";
-                echo "</div>";
-                echo "<div class='col-md-5'>";
-                echo "<div class='product-content'>";
-                echo "<div class='product-content'>";
-                echo "<h3 class='title'><a href='#'>".$product["StockItemName"]."</a></h3>";
-    echo "<h3 class='title'><a href='#'>".$product["StockItemID"]."</a></h3>";
-    print( "<h3 class='title'><a class='btn btn-success' href=\"bevestiging.php?nummer=".$product["StockItemID"]."\">In Winkelwagen</a></h3>");  
-   
-                echo "</div>";
-                echo "</div>";
-                echo "<div class='col-md-4>";
-#totaal prijs code 
+                    echo "<div class='col-md-4>";
+                        echo "<h3 class='title'>€".$product["UnitPrice"]."</h3>"; 
+                    echo "</div>";   
+                    echo "<div class='col-md-4>";
+                    echo "<input type='text' name='quantity' value='1' />";
+                    echo "</div>";
+                    echo "<div class='col-md-4'>";
+                        echo "<div class='product-content'>";
+                            print( "<h3 class='title'><a class='btn btn-success' href='bevestiging.php?nummer=".$product["StockItemID"]."'>In Winkelwagen</a></h3>");  
+                        echo "</div>";
+                    echo "<div class='col-md-4>";
+                    #totaal prijs code 
                 echo "</div>";
             echo "</div>";
         echo "</div>";
