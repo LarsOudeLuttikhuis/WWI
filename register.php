@@ -2,6 +2,7 @@
 include 'navbar.php';
 require_once('Functions/global.php');
 require_once('Functions/login.php');
+
 $connectie = NULL;
 $resultaat = '';
 ?>
@@ -32,6 +33,34 @@ if (!$errors) {
     $resultaat = RegisterUser($inputVoornaam, $inputAchternaam, $inputTussenvoegsel, $inputTelefoon, $inputStraat, $inputHuisnummer, 
                                       $inputPostcode, $inputPlaats, $inputEmail, $inputWachtwoord);
 }
+
+# insert data in table
+function RegisterUser($inputVoornaam, $inputAchternaam, $inputTussenvoegsel, $inputTelefoon, $inputStraat, $inputHuisnummer, 
+                                      $inputPostcode, $inputPlaats, $inputEmail, $inputWachtwoord){
+    global $connectie;#, $resultaat;
+    maakConnectiePDO();
+    $pass = hash("md5", $inputWachtwoord);
+    $resultaat = $connectie->prepare("INSERT INTO gebruikers (Voornaam, Tussenvoegsels, Achternaam, Straat, Huisnummer, Postcode, Plaats, Telefoonnummer, Email, Wachtwoord) 
+                                                      VALUES (:inputVoornaam, :inputTussenvoegsel, :inputAchternaam, :inputStraat, :inputHuisnummer, 
+                                                                :inputPostcode, :inputPlaats, :inputTelefoon, :inputEmail, :pass)"); 
+    $resultaat->execute([
+        'inputVoornaam' => $inputVoornaam,
+        'inputTussenvoegsel' => $inputTussenvoegsel,
+        'inputAchternaam' => $inputAchternaam,
+        'inputStraat' => $inputStraat,
+        'inputHuisnummer' => $inputHuisnummer,
+        'inputTelefoon' => $inputTelefoon,
+        'inputPostcode' => $inputPostcode,
+        'inputPlaats' => $inputPlaats,
+        'inputEmail' => $inputEmail,
+        'pass' => $pass
+    ]);
+    // return $resultaat->fetchAll();
+}
+
+$resultaat = RegisterUser($inputVoornaam, $inputAchternaam, $inputTussenvoegsel, $inputTelefoon, $inputStraat, $inputHuisnummer, 
+                                      $inputPostcode, $inputPlaats, $inputEmail, $inputWachtwoord);
+sluitConnectiePDO();
 
 print $resultaat;
 ?>

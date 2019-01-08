@@ -46,6 +46,10 @@ if (!function_exists('HomeProduct')) {
     }
 }
 
+
+
+
+
 if (!function_exists('sluitConnectiePDO')) {
     function sluitConnectiePDO() {
         global $connectie, $resultaat;
