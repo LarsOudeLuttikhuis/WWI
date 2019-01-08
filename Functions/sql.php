@@ -6,7 +6,7 @@ if (!function_exists('maakConnectiePDO')) {
         function maakConnectiePDO() {
         global $connectie;
         $dsn = "mysql:host=localhost;dbname=wideworldimporters;";
-        $connectie = new PDO($dsn, 'root', 'Welkom01!');
+        $connectie = new PDO($dsn, 'root', '');
     }
 }
 
