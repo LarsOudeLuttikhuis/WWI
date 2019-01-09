@@ -72,7 +72,8 @@ if(isset($_GET["action"]))
                         echo"<h3>Order Details</h3>";
                     echo"<div class='table-responsive'>";
                     echo"<table class='table table-bordered'>";                    
-                    echo" <tr>";                    
+					echo" <tr>";
+					echo"<th width='20%'>Item Image</th>";                     
                     echo"<th width='40%'>Item Name</th>";                    
                     echo"<th width='10%'>Quantity</th>";                    
                     echo"<th width='20%'>Price</th>";                    
@@ -86,6 +87,7 @@ if(isset($_GET["action"]))
 						{
 					?>
 					<tr>
+						<td><img class='pic-1' with src='images/240x250.png'></td>
 						<td><?php echo $values["item_name"]; ?></td>
 						<td><?php echo $values["item_quantity"]; ?></td>
 						<td>€<?php echo $values["item_price"]; ?></td>
