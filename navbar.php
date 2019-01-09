@@ -33,7 +33,15 @@
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li><a href="Winkelwagen.php">Winkelwagen <img class='pic-1' src='images/Winkelwagen.jpg'width='25' height='25'></a></li>
-      <li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      <?php
+    
+      if (isset($_SESSION["Voornaam"])){
+        print('<li><a href="klantpagina.php"><span class="glyphicon glyphicon-cog"></span>  '.$_SESSION["Voornaam"].' </a></li>');
+        print('<li><a href="logout.php"><span class="glyphicon glyphicon-log-in"></span> Logout </a></li>');
+      } else {
+        print('<li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>');
+      }
+      ?>
     </ul>
   </div>
 </nav>
