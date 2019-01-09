@@ -1,8 +1,7 @@
-<?php
-include 'navbar.php';
-include_once 'Functions/global.php';
-include_once 'Functions/sql.php';
-?>
+<?php include_once 'Functions/global.php'; ?>
+<?php include_once 'navbar.php'; ?>
+<?php include_once 'Functions/login.php'?>
+<?php include_once 'Functions/sql.php'?>
 <div class="jumbotron"
 <?php
 session_start();
@@ -106,6 +105,87 @@ if(isset($_GET["action"]))
 			</div>
             </div>
     <div class="container">
+    <?php
+    $errors = $voornaamError = $achternaamError = $straatError = $huisnummerError = $postcodeError = $plaatsError = 
+    $emailError = $passError1 = $passError2 = $pass_errors = False;
+
+# Controleren of er input is vanuit de pagina.
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    # Controleren of het login formulier is gebruikt 
+    if (isset($_POST['loginFormulier'])) {
+        if (isset($_POST['inputEmail']) && isset($_POST['inputPassword'])){
+            $email = $_POST["inputEmail"];
+            $pass = hash("md5", $_POST["inputPassword"]);
+            CheckLogin($email, $pass);
+        } else {
+            $email = $_POST["inputEmail"];
+            $pass = '';
+            CheckLogin($email, $pass);
+        }
+    # Anders het registreerformulier afhandelen
+    } else {
+        # preset variables with value ''
+        $inputVoornaam = $inputAchternaam = $inputTussenvoegsel = $inputTelefoon = $inputStraat = $inputHuisnummer = 
+            $inputPostcode = $inputPlaats = $inputEmail = $inputWachtwoord = $inputWachtwoord2 = '';
+        #$errors = False;
+        # if variable was set in the form, add form data to the variables
+        if (isset($_POST['inputVoornaam']) && $_POST['inputVoornaam'] != ''){ 
+            $inputVoornaam .= $_POST["inputVoornaam"];
+        } else {$voornaamError = True; $errors = True;}
+        if (isset($_POST['inputAchternaam']) && $_POST['inputAchternaam'] != ''){ 
+            $inputAchternaam .= $_POST["inputAchternaam"];
+        } else {$achternaamError = True; $errors = True;}
+        if (isset($_POST['inputTussenvoegsel'])){ $inputTussenvoegsel .= $_POST["inputTussenvoegsel"];}
+        if (isset($_POST['inputTelefoon'])){ $inputTelefoon .= $_POST["inputTelefoon"];}
+        if (isset($_POST['inputStraat']) && $_POST['inputStraat'] != ''){ 
+            $inputStraat .= $_POST["inputStraat"];
+        } else {$straatError = True; $errors = True;}
+        if (isset($_POST['inputHuisnummer']) && $_POST['inputHuisnummer'] != ''){ 
+            $inputHuisnummer .= $_POST["inputHuisnummer"];
+        } else {$huisnummerError = True; $errors = True;}
+        if (isset($_POST['inputPostcode']) && $_POST['inputPostcode'] != ''){ 
+            $inputPostcode .= $_POST["inputPostcode"];
+        } else {$postcodeError = True; $errors = True;}
+        if (isset($_POST['inputPlaats']) && $_POST['inputPlaats'] != ''){ 
+            $inputPlaats .= $_POST["inputPlaats"];
+        } else {$plaatsError = True; $errors = True;}
+        if (isset($_POST['inputEmail']) && $_POST['inputEmail'] != ''){ 
+            $inputEmail .= $_POST["inputEmail"];
+        } else {$emailError = True; $errors = True;}
+        if (isset($_POST['inputWachtwoord']) && $_POST['inputWachtwoord'] != ''){ 
+            $inputWachtwoord .= $_POST["inputWachtwoord"];
+        } else {$passError1 = True; $errors = True;}
+        if (isset($_POST['inputWachtwoord2']) && $_POST['inputWachtwoord2'] != ''){ 
+            $inputWachtwoord2 .= $_POST["inputWachtwoord2"];
+        } else {$passError2 = True; $errors = True;}
+        if ($inputWachtwoord2 != $inputWachtwoord) {$pass_errors = True; $errors = True;}
+
+        #print('voornaam is '.var_export($voornaamError)."achternaam: ".var_export($achternaamError));
+        # Wanneer er geen velden zijn vergeten wordt de functie RegisterUser uitgevoerd.
+        if (!$errors) {
+            $resultaat = RegisterUser($inputVoornaam, $inputAchternaam, $inputTussenvoegsel, $inputTelefoon, $inputStraat, $inputHuisnummer, 
+                                            $inputPostcode, $inputPlaats, $inputEmail, $inputWachtwoord);
+        }
+
+    }
+
+# Als het geen POST request betreft:
+} else {
+    $inputVoornaam = $inputAchternaam = $inputTussenvoegsel = $inputTelefoon = $inputStraat = $inputHuisnummer = $inputPostcode = $inputPlaats = $inputEmail = $inputWachtwoord = $inputWachtwoord2 = '';
+
+    if (isset($_POST['inputVoornaam'])){ $inputVoornaam .= $_POST["inputVoornaam"];}
+    if (isset($_POST['inputAchternaam'])){ $inputAchternaam .= $_POST["inputAchternaam"];}
+    if (isset($_POST['inputTussenvoegsel'])){ $inputTussenvoegsel .= $_POST["inputTussenvoegsel"];}
+    if (isset($_POST['inputTelefoon'])){ $inputTelefoon .= $_POST["inputTelefoon"];}
+    if (isset($_POST['inputStraat'])){ $inputStraat .= $_POST["inputStraat"];}
+    if (isset($_POST['inputHuisnummer'])){ $inputHuisnummer .= $_POST["inputHuisnummer"];}
+    if (isset($_POST['inputPostcode'])){ $inputPostcode .= $_POST["inputPostcode"];}
+    if (isset($_POST['inputPlaats'])){ $inputPlaats .= $_POST["inputPlaats"];}
+    if (isset($_POST['inputEmail'])){ $inputEmail .= $_POST["inputEmail"];}
+    if (isset($_POST['inputWachtwoord'])){ $inputWachtwoord .= $_POST["inputWachtwoord"];}
+    
+    }
+?>
 	<div class="row">
 		<div class="col-md-12">
 		    <div class="card">
@@ -126,7 +206,7 @@ if(isset($_GET["action"]))
                               <div class="form-group row">
                                 <label for="name" class="col-4 col-form-label">Straatnaam*</label> 
                                 <div class="col-8">
-                                  <input id="Naam" name="inputVoornaam" placeholder="Voornaam" value="<?php print($voornaam); ?>" class="form-control here" type="text">
+                                  <input id="Straat" name="inputStraat" placeholder="Straat" value="<?php print($Straat); ?>" class="form-control here" type="text">
                                 </div>
                               </div>
                               <div class="form-group row">
@@ -190,8 +270,8 @@ if(isset($_GET["action"]))
 						<td colspan="3" align="right">Total</td>
 						<td align="right">€<?php echo number_format($total, 2); ?></td>
 						<td></td>
-					</tr>
-                                  <button name="submit" type="submit" class="btn btn-primary">Betalen</button>
+					    </tr>
+                                <button type="button" class="btn btn-primary" onclick="alert('Send to IDeal')">Betalen</button>
                                 </div>
                               </div>
                               </div>

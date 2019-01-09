@@ -9,6 +9,7 @@ $catagorieën = array();
 $klanten = array();
 $product = array();
 $gegevens = filter_input_array(INPUT_GET, FILTER_SANITIZE_STRING);
+$gebruikergegevens = array();
 
 
 function ProductenOverzichtBekijken($CiD)
@@ -18,6 +19,15 @@ function ProductenOverzichtBekijken($CiD)
     $producten = SelecteerProducten($CiD);
     sluitConnectiePDO();
     return $producten;
+}
+
+function GebruikersGegevensBekijken($GID)
+{ 
+    global $gebruikersgegevens;
+    maakConnectiePDO();
+    $gebruikersgegevens = SelecteerGebruikers($GID);
+    sluitConnectiePDO();
+    return $gebruikersgegevens;
 }
 
 function CatagorieënOverzichtBekijken()
