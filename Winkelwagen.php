@@ -6,7 +6,6 @@ include_once 'Functions/sql.php';
 ?>
 <div class="jumbotron"
 <?php
-session_start();
 if(isset($_POST["add_to_cart"]))
 {
     
