@@ -1,7 +1,7 @@
 
 <?php
-include 'navbar.php';
 include_once 'Functions/global.php';
+include 'navbar.php';
 include_once 'Functions/sql.php';
 ToonWinkelWagen();
 ?>
