@@ -3,9 +3,7 @@ include 'navbar.php';
 include_once 'Functions/global.php';
 HomeProductenOverzichtBekijken(1);
 $teller = 0;
-$firstTime = true;
-?>
-
+$firstTime = true;?>
     <div class='row'>
     <div class='col-md-2'></div>
     <?foreach ($producten as $product) {
@@ -32,7 +30,7 @@ $firstTime = true;
         <?$teller += 1;
     }?>
     </div>
-<?
+    <?
 print($melding); 
 include 'footer.php';
 ?>
