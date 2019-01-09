@@ -7,6 +7,9 @@ if (!function_exists('maakConnectiePDO')) {
         global $connectie;
         $dsn = "mysql:host=localhost:3306;dbname=wideworldimporters;";
         $connectie = new PDO($dsn, 'root', '');
+        if ($connectie->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+        } 
     }
 }
 
@@ -45,28 +48,15 @@ if (!function_exists('HomeProduct')) {
         return $resultaat->fetchAll();
     }
 }
+
+
+
+
+
 if (!function_exists('sluitConnectiePDO')) {
     function sluitConnectiePDO() {
         global $connectie, $resultaat;
         $resultaat = null; // doing this is mandatory for connection to get closed
         $connectie = null;
     }    
-}
-
-if (!function_exists('GetKlantInfo')) {
-    function GetKlantInfo() {
-        global $connectie, $resultaat;
-        $resultaat = $connectie->prepare("SELECT * FROM wideworldimporters.gebruikers where StockItemName like '%chocola%' And SupplierID = 1;");
-        $resultaat->execute();
-        return $resultaat->fetchAll();
-    }
-}
-
-if (!function_exists('SelecteerGebruikers')) {
-    function SelecteerGebruikers($GID) {
-        global $connectie, $resultaat;
-        $resultaat = $connectie->prepare("SELECT * FROM gebruikers WHERE gebruikers.id = ".$GID.";");
-        $resultaat->execute();
-        return $resultaat->fetchAll();
-    }
 }
