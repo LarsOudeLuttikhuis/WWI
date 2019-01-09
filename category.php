@@ -1,6 +1,6 @@
 <?php
-include 'navbar.php';
 include_once 'Functions/global.php';
+include 'navbar.php';
 CatagorieënOverzichtBekijken();
 print($melding); 
 $teller = 0;
