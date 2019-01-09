@@ -48,7 +48,7 @@ ProductOverzichtBekijken($Pid);
                 </select>
                 </form> 
                  </th> 
-                <th class='th'style='text-align:right;'><a class='btn btn-success' href='bevestiging.php?nummer=<? echo $product["StockItemID"]?>'>In Winkelwagen</a></th>
+                <th class='th'style='text-align:right;'><a class='btn btn-success' href='bevestiging.php?nummer=".$product["StockItemID"]."'>In Winkelwagen</a></th>
                 </tr>
                 </table>
                 </div>
