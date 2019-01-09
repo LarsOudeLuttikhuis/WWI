@@ -24,12 +24,14 @@
       <li><a href="home.php">Home</a></li>
       <li><a href="contact.php">Contact</a></li>
       <li><a href="category.php">Category</a></li>
-      <li> <a> 
+      <li> 
+        <a> 
           <form action="search.php" method="GET">
           <input type="text" name="query" />
           <input type="submit" value="Search" />
           </form>
-</a></li>
+        </a>
+      </li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li><a href="Winkelwagen.php">Winkelwagen <img class='pic-1' src='images/Winkelwagen.jpg'width='25' height='25'></a></li>
