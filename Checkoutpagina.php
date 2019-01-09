@@ -1,7 +1,8 @@
-<?php include_once 'Functions/global.php'; ?>
-<?php include_once 'navbar.php'; ?>
-<?php include_once 'Functions/login.php'?>
-<?php include_once 'Functions/sql.php'?>
+<?php
+include 'navbar.php';
+include_once 'Functions/global.php';
+include_once 'Functions/sql.php';
+?>
 <div class="jumbotron"
 <?php
 session_start();
@@ -125,7 +126,7 @@ if(isset($_GET["action"]))
                               <div class="form-group row">
                                 <label for="name" class="col-4 col-form-label">Straatnaam*</label> 
                                 <div class="col-8">
-                                  <input id="Straat" name="inputStraat" placeholder="Straat" value="<?php print($Straat); ?>" class="form-control here" type="text">
+                                  <input id="Naam" name="inputVoornaam" placeholder="Voornaam" value="<?php print($voornaam); ?>" class="form-control here" type="text">
                                 </div>
                               </div>
                               <div class="form-group row">
@@ -189,8 +190,8 @@ if(isset($_GET["action"]))
 						<td colspan="3" align="right">Total</td>
 						<td align="right">€<?php echo number_format($total, 2); ?></td>
 						<td></td>
-					    </tr>
-                                <button type="button" class="btn btn-primary" onclick="alert('Send to IDeal')">Betalen</button>
+					</tr>
+                                  <button name="submit" type="submit" class="btn btn-primary">Betalen</button>
                                 </div>
                               </div>
                               </div>
