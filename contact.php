@@ -1,4 +1,6 @@
-<?php include 'navbar.php';?>
+<?php 
+include_once('Functions/global.php');
+include 'navbar.php';?>
 <div class="jumbotron jumbotron-sm">
     <div class="container">
         <div class="row">
