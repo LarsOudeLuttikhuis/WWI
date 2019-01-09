@@ -87,7 +87,7 @@ if(isset($_GET["action"]))
 						{
 					?>
 					<tr>
-						<td><img class='pic-1' with src='images/240x250.png'></td>
+						<td><img class='pic-1' src='images/240x250.png'></td>
 						<td><?php echo $values["item_name"]; ?></td>
 						<td><?php echo $values["item_quantity"]; ?></td>
 						<td>€<?php echo $values["item_price"]; ?></td>

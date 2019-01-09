@@ -5,8 +5,11 @@ $resultaat = NULL;
 if (!function_exists('maakConnectiePDO')) {
         function maakConnectiePDO() {
         global $connectie;
-        $dsn = "mysql:host=192.168.64.2;dbname=wideworldimporters;";
-        $connectie = new PDO($dsn, 'admin', 'admin');
+        $dsn = "mysql:host=localhost:3306;dbname=wideworldimporters;";
+        $connectie = new PDO($dsn, 'root', '');
+        if ($connectie->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+        } 
     }
 }
 
