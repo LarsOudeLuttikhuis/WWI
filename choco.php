@@ -11,7 +11,7 @@ $firstTime = true;
     <?foreach ($producten as $product) {
         if ($teller % 4 == 0 && $firstTime == false) {?>
             </div>
-            <br/>\n<br/>\n<br/>\n
+            <br/><br/><br/>
             <div class='row'>
             <div class='col-md-2'></div>
         <?}

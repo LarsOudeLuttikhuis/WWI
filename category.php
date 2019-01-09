@@ -11,7 +11,7 @@ $firstTime = true;
     <?foreach ($catagorieën as $catagorie) {
         if ($teller % 5 == 0 && $firstTime == false) {?>
             </div>
-            <br/>\n<br/>\n<br/>\n
+            <br/><br/><br/>
             <div class='row'>
             <div class='col-md-1'></div>
         <?}
