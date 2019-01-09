@@ -1,3 +1,4 @@
+
 <?php
 $message = "";
 function passwordCheck( $val1, $val2)
