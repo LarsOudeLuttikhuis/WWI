@@ -45,7 +45,9 @@ function ToonProducten()
         print("<div class='product-content'>");
         print("<h3 class='title'><a href='product.php?Pid=" . $product["StockItemID"] . "'>" . $product["StockItemName"] . "</a></h3>");
         echo "<form method='post'  action='Winkelwagen.php?action=add&id=". $product["StockItemID"]."'>";
+        echo "<h3 class='title'>Aantal</h3>";
                 echo "<input type='text' name='quantity' value='1' class='form-control' />";
+                echo "<th class='th'><p style='text-align:left;'><h3 class='title'>Prijs</h3>€".$product["UnitPrice"]."</p>";
                 echo "<input type='hidden' name='hidden_name' value=" .$product["StockItemName"].".php'>";
                 echo "<input type='hidden' name='hidden_price' value=" .$product["UnitPrice"].">";
                 echo "<input type='submit' name='add_to_cart' style='margin-top:5px;' class='btn btn-success' value='In winkelwagen'/>";
@@ -187,7 +189,9 @@ function ToonHomeProducten()
         print("<div class='product-content'>");
         print("<h3 class='title'><a href='product.php?Pid=" . $product["StockItemID"] . ".php'>" . $product["StockItemName"] . "</a></h3>");
         echo "<form method='post'  action='Winkelwagen.php?action=add&id=". $product["StockItemID"]."'>";
+        echo "<h3 class='title'>Aantal</h3>";
         echo "<input type='text' name='quantity' value='1' class='form-control' />";
+        echo "<th class='th'><p style='text-align:left;'><h3 class='title'>Prijs</h3>€".$product["UnitPrice"]."</p>";
         echo "<input type='hidden' name='hidden_name' value=" .$product["StockItemName"].".php'>";
         echo "<input type='hidden' name='hidden_price' value=" .$product["UnitPrice"].">";
         echo "<input type='submit' name='add_to_cart' style='margin-top:5px;' class='btn btn-success' value='In winkelwagen'/>";
