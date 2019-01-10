@@ -32,7 +32,9 @@
     <ul class="nav navbar-nav navbar-right">
       <li><a href="Winkelwagen.php">Winkelwagen <img class='pic-1' src='images/Winkelwagen.jpg'width='25' height='25'></a></li>
       <?php
-    
+       if (isset($_SESSION["Email"]) && $_SESSION["Email"] == 'admin@wwi.nl'){
+        print('<li><a href="conversie.php"><span class="glyphicon glyphicon-log-in"></span> Conversie </a></li>');
+      }    
       if (isset($_SESSION["Voornaam"])){
         print('<li><a href="klantpagina.php"><span class="glyphicon glyphicon-cog"></span>  '.$_SESSION["Voornaam"].' </a></li>');
         print('<li><a href="logout.php"><span class="glyphicon glyphicon-log-in"></span> Logout </a></li>');
