@@ -1,5 +1,6 @@
 <?php
 include_once 'sql.php';
+include_once 'Functions/global.php';
 session_start();
 $melding = "";
 $vraagBevestiging = true;
