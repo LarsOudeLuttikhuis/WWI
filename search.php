@@ -12,18 +12,23 @@ include_once 'navbar.php';
 <?php
 $query = $_GET['query'];
 maakConnectiePDO();
-$min_length = 3;
-if(strlen($query) >= $min_length){ 
-    $query = htmlspecialchars($query);  
+
+if(strlen($query) <= 3){ 
+    print ( 'artikel niet aanwezig' );
+}
+
+else if(strlen($query) >= 3){ 
+    $query = htmlspecialchars($query);
     global $connectie, $resultaat;
     $sql = "SELECT StockItemID, StockItemName FROM stockitems WHERE StockItemName LIKE '%".$query."%'";
         foreach ($connectie->query($sql) as $row){
-        print('<a href="product.php?Pid='.$row["StockItemID"].'"> '.$row['StockItemName'].' <br>');
-    }   
+            if ($sql = true)
+         print('<a href="product.php?Pid='.$row["StockItemID"].'"> '.$row['StockItemName'].' <br>');
+    }
 }
+
 
 sluitConnectiePDO();
 ?>
 </body>
 </html>
-
