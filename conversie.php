@@ -31,7 +31,8 @@ include_once 'navbar.php';
             $conversie = 100 / $totaal_bezoeken * $aantal_bestellingen;
         }
         if ($aantal_bestellingen > 0){
-            $gemiddelde_besteding = $totaal_besteed/$aantal_bestellingen;
+            $gemiddelde_besteding = $totaal_besteed / $aantal_bestellingen;
+            $gemiddelde_besteding = '&euro;'.$gemiddelde_besteding
         } else {
             $gemiddelde_besteding = 'n.v.t.';
         }
