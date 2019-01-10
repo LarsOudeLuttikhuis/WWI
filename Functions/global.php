@@ -1,7 +1,22 @@
 <?php
 include_once 'sql.php';
-include_once 'Functions/global.php';
-session_start();
+
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
+# Sessie variabele om bezoeken te registreren
+if (!isset($_SESSION["random"])){
+    $_SESSION["random"] = rand();
+    global $connectie;
+    maakConnectiePDO();
+    $sql = $connectie->prepare("INSERT INTO bezoeken (bezoeker) VALUES (:bezoeker)"); 
+    $sql->execute([
+        'bezoeker' => $_SESSION["random"]
+    ]);
+    sluitConnectiePDO();
+}
+
 $melding = "";
 $vraagBevestiging = true;
 $gegevens = filter_input_array(INPUT_GET, FILTER_SANITIZE_STRING);
