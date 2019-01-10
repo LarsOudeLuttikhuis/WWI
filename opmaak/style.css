@@ -34,3 +34,8 @@
 .navbar-brand {
     color: rgb(0, 103, 198);
 }
+
+.main-div {
+    margin: 0px;
+    padding: 0px;
+}
