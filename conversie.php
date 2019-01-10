@@ -32,7 +32,7 @@ include_once 'navbar.php';
         }
         if ($aantal_bestellingen > 0){
             $gemiddelde_besteding = $totaal_besteed / $aantal_bestellingen;
-            $gemiddelde_besteding = '&euro;'.$gemiddelde_besteding
+            $gemiddelde_besteding = '&euro;'.$gemiddelde_besteding;
         } else {
             $gemiddelde_besteding = 'n.v.t.';
         }
