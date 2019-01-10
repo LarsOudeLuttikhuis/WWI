@@ -93,8 +93,8 @@ if(isset($_GET["action"]))
 						}
 					?>
 					<tr>
-						<td colspan="3" align="right">Total</td>
-						<td align="right">€<?php echo number_format($total, 2); ?></td>
+						<td colspan="3" class="align-right">Total</td>
+						<td class="align-right">€<?php echo number_format($total, 2); ?></td>
 						<td></td>
 					</tr>
 					<?php
@@ -102,12 +102,15 @@ if(isset($_GET["action"]))
 					}
 					?>
 						
-				</table>
-								<?php
+				<table class="align-right">
+				<?php
 				echo "<form action='checkoutpagina.php?'>";
-                echo "<input type='submit' name='add_to_cart' style='margin-top:5px;' class='btn btn-success' value='Naar checkout pagina'/>";
+				echo "<input type='submit' name='add_to_cart' style='margin-top:5px; float: right; margin-right: 15px;' class='align-right btn btn-success' value='Naar checkout pagina'/>";
+				echo "</form> &nbsp;&nbsp;" ;
+                echo "<form class='align-right' action='category.php?'>";
+                echo "<input type='submit' name='' style='margin-top:5px; float: right; margin-right: 15px' class='btn btn-success align-right' value='Verder winkelen'/>";
 				echo "</form>";
-				?>
+				?>  </table>
 			</div>
             </div>
             <?php

@@ -185,6 +185,12 @@ function ToonHomeProducten()
         print("</div>");
         print("<div class='product-content'>");
         print("<h3 class='title'><a href='product.php?Pid=" . $product["StockItemID"] . ".php'>" . $product["StockItemName"] . "</a></h3>");
+        echo "<form method='post'  action='Winkelwagen.php?action=add&id=". $product["StockItemID"]."'>";
+        echo "<input type='text' name='quantity' value='1' class='form-control' />";
+        echo "<input type='hidden' name='hidden_name' value=" .$product["StockItemName"].".php'>";
+        echo "<input type='hidden' name='hidden_price' value=" .$product["UnitPrice"].">";
+        echo "<input type='submit' name='add_to_cart' style='margin-top:5px;' class='btn btn-success' value='In winkelwagen'/>";
+    echo "</form>"; 
         print("</div>");
         print("</div>");
         print("</div>");
