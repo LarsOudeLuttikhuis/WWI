@@ -1,18 +1,17 @@
 <?php
-$connectie = NULL;
-$resultaat = NULL;
+global $connectie;
+global $resultaat;
 
 if (!function_exists('maakConnectiePDO')) {
-        function maakConnectiePDO() {
+    function maakConnectiePDO() {
         global $connectie;
-        $dsn = "mysql:host=localhost:3306;dbname=wideworldimporters;";
-        $connectie = new PDO($dsn, 'root', '');
-        if ($connectie->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-        } 
+        $dsn = 'mysql:host=localhost:3306;dbname=wideworldimporters;';
+        $username = 'root';
+        $password = '';
+        $connectie = new PDO($dsn, $username, $password);
+        $connectie->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
 }
-
 if (!function_exists('SelecteerProducten')) {
     function SelecteerProducten($CiD) {
         global $connectie, $resultaat;
@@ -48,11 +47,6 @@ if (!function_exists('HomeProduct')) {
         return $resultaat->fetchAll();
     }
 }
-
-
-
-
-
 if (!function_exists('sluitConnectiePDO')) {
     function sluitConnectiePDO() {
         global $connectie, $resultaat;
