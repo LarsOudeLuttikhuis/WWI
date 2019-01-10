@@ -10,11 +10,9 @@
   <link rel="stylesheet" href="/opmaak/login.css">
   <link rel="stylesheet" href="opmaak/artikelen.css" />
   <link rel="stylesheet" href="opmaak/style.css" />
-
 </head>
 <body>
 <div class="content">
-
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -26,8 +24,8 @@
       <li><a href="category.php">Category</a></li>
       <li> <a> 
           <form action="search.php" method="GET">
-          <input type="text" name="query" />
-          <input type="submit" value="Search" />
+          <input class="zoek"type="text" name="query" />
+          <input class="zoek"type="submit" value="Search" />
           </form>
 </a></li>
     </ul>
