@@ -9,9 +9,9 @@ include_once 'Functions/sql.php';
 if(isset($_POST["add_to_cart"]))
 {
     
-    echo '<h3 class="display-4">Winkelwagen</h3>';
+    echo '<h2>Winkelwagen</h2>';
     echo ' <div style="clear:both"></div>';
-    echo ' <div class="col-md-4">';
+    echo ' <div class="col-md-12">';
   
 	if(isset($_SESSION["shopping_cart"]))
 	{
@@ -57,18 +57,13 @@ if(isset($_GET["action"]))
 			}
 		}
 	}
-}
-
-?>
-
-<?php        
-           
+}           
                     if(empty($_SESSION["shopping_cart"]))
                     {
                         echo ("<h3>Uw winkelwagen is leeg.</h3>");
                     }
                     else{
-                        echo"<h3>Order Details</h3>";
+                        echo"<h4>Order Details</h4>";
                     echo"<div class='table-responsive'>";
                     echo"<table class='table table-bordered'>";                    
 					echo" <tr>";    
@@ -108,6 +103,11 @@ if(isset($_GET["action"]))
 					?>
 						
 				</table>
+								<?php
+				echo "<form action='checkoutpagina.php?'>";
+                echo "<input type='submit' name='add_to_cart' style='margin-top:5px;' class='btn btn-success' value='Naar checkout pagina'/>";
+				echo "</form>";
+				?>
 			</div>
             </div>
             <?php

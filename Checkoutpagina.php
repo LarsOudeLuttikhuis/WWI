@@ -5,13 +5,11 @@ include_once 'Functions/sql.php';
 ?>
 <div class="jumbotron"
 <?php
-session_start();
 if(isset($_POST["add_to_cart"]))
 {
     
     echo '<h3 class="display-4">Winkelwagen</h3>';
     echo ' <div style="clear:both"></div>';
-    echo ' <div class="col-md-4">';
   
 	if(isset($_SESSION["shopping_cart"]))
 	{
@@ -71,11 +69,13 @@ if(isset($_GET["action"]))
                         echo"<h3>Order Details</h3>";
                     echo"<div class='table-responsive'>";
                     echo"<table class='table table-bordered'>";                    
-                    echo" <tr>";                    
-                    echo"<th width='30%'>Item Name</th>";                    
-                    echo"<th width='20%'>Quantity</th>";                    
+					echo" <tr>";    
+					echo"<th width='20%'>Item Image</th>";                   
+                    echo"<th width='40%'>Item Name</th>";                    
+                    echo"<th width='10%'>Quantity</th>";                    
                     echo"<th width='20%'>Price</th>";                    
-                    echo"<th width=15%>Total</th>";                                    
+                    echo"<th width=15%>Total</th>";                    
+                    echo"<th width=5%>Action</th>";                    
                     echo"</tr>";  
 					if(!empty($_SESSION["shopping_cart"]))
 					{
@@ -84,18 +84,21 @@ if(isset($_GET["action"]))
 						{
 					?>
 					<tr>
+						<td><img class='pic-1' src='images/240x250.png'></td>
 						<td><?php echo $values["item_name"]; ?></td>
 						<td><?php echo $values["item_quantity"]; ?></td>
 						<td>€<?php echo $values["item_price"]; ?></td>
 						<td>€<?php echo number_format($values["item_quantity"] * $values["item_price"], 2);?></td>
+						<td><a href="winkelwagen.php?action=delete&id=<?php echo $values["item_id"]; ?>"><span class="text-danger">Remove</span></a></td>
 					</tr>
 					<?php
 							$total = $total + ($values["item_quantity"] * $values["item_price"]);
 						}
 					?>
 					<tr>
-						<td colspan="3" align="right">Total</td>
-						<td align="left">€<?php echo number_format($total, 2); ?></td>
+						<td colspan="3" class="align-right">Total</td>
+						<td class="align-right"class="align-right">€<?php echo number_format($total, 2); ?></td>
+						<td></td>
 					</tr>
 					<?php
                     }
@@ -112,11 +115,11 @@ if(isset($_GET["action"]))
 		        <div class="card-body">
 		            <div class="row">
 		                <div class="col-md-6">
-                        <div align="center">
+                        <div class="align-center">
 		                    <h4>Leveradres</h4>
 		                </div></div>
                         <div class="col-md-6">
-                        <div align="center">
+                        <div class="align-center">
                         <h4>Factuuradres</h4>
                         </div></div>
 		            </div>
@@ -187,11 +190,15 @@ if(isset($_GET["action"]))
                               <div class="form-group row">
                                 <div class="offset-4 col-8">
                                 <tr>
-						<td colspan="3" align="right">Total</td>
-						<td align="right">€<?php echo number_format($total, 2); ?></td>
+						<td colspan="3" class="align-right">Total</td>
+						<td class="align-right">€<?php echo number_format($total, 2); ?></td>
 						<td></td>
 					</tr>
-                                  <button name="submit" type="submit" class="btn btn-primary">Betalen</button>
+                                  <?php
+                                  echo "<form action='betalen.php?'>";
+                                  echo "<input type='submit' name='' style='margin-top:5px;' class='btn btn-success' value='Betalen'/>";
+                                  echo "</form>";
+                                  ?>
                                 </div>
                               </div>
                               </div>
