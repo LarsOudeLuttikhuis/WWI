@@ -4,11 +4,17 @@ include 'navbar.php';
 include_once 'Functions/sql.php';
 
 $inputVoornaam = $inputAchternaam = $inputTussenvoegsel = $inputTelefoon = $inputStraat = $inputHuisnummer = $inputPostcode = $inputPlaats = $inputEmail = $inputWachtwoord = '';
-$sessie_email = $_SESSION["Email"];
+if (isset($_SESSION["Email"])){
+  $sessie_email = $_SESSION["Email"];
+  $email = $_SESSION["Email"];
+} else {
+  $sessie_email = '';
+  $email = '';
+}
 
 global $connectie, $resultaat;
 maakConnectiePDO();
-$email = $_SESSION["Email"];
+
 $sql = "SELECT * FROM gebruikers WHERE Email = '".$email."'";
 $res = $connectie->query($sql);
 
@@ -149,7 +155,7 @@ if(isset($_GET["action"]))
 		                <div class="col-md-3">
                     <form method="post" action="Betalen.php">
                               <div class="form-group row">
-                                <label for="name" class="col-4 col-form-label">Voornaam*</label> 
+                                <label for="name" class="col-4 col-form-label">Voornaam</label> 
                                 <div class="col-8">
                                   <input id="Naam" name="inputVoornaam" placeholder="Voornaam" value="<?php print($voornaam); ?>" class="form-control here" type="text">
                                 </div>
@@ -164,39 +170,39 @@ if(isset($_GET["action"]))
                               <div class="form-group row">
                                 <label for="Achternaam" class="col-4 col-form-label">Huisnummer*</label> 
                                 <div class="col-8">
-                                  <input id="Achternaam" name="inputAchternaam" value="<?php print($achternaam); ?>"placeholder="Achternaam" class="form-control here" type="text">
+                                  <input id="Achternaam" name="inputHuisnummer" value="<?php print($achternaam); ?>"placeholder="Huisnummer" class="form-control here" required="required" type="text">
                                 </div>
                               </div>
                               <div class="form-group row">
                                 <label for="text" class="col-4 col-form-label">Postcode*</label> 
                                 <div class="col-8">
-                                  <input id="text" name="inputTelefoon" placeholder="Telefoonnummer" value="<?php print($telefoon); ?>"class="form-control here" required="required" type="text">
+                                  <input id="text" name="inputPostcode" placeholder="Postcode" value="<?php print($postcode); ?>"class="form-control here" required="required" type="text">
                                 </div>
                               </div></div>
                               <div class="col-md-3">
                               <div class="form-group row">
                                 <label for="straatnaam" class="col-4 col-form-label">Straatnaam*</label> 
                                 <div class="col-8">
-                                  <input id="straatnaam" name="inputStraat" value="<?php print($straatnaam); ?>"placeholder="straatnaam" class="form-control here" type="text">
+                                  <input id="straatnaam" name="inputStraat" value="<?php print($straatnaam); ?>"placeholder="Straatnaam"  required="required" class="form-control here" type="text">
                                 </div>
                               </div>
                               <div class="form-group row">
                                 <label for="huisnummer" class="col-4 col-form-label">Plaats*</label> 
                                 <div class="col-8">
-                                  <input id="huisnummer" name="inputHuisnummer" value="<?php print($huisnummer); ?>"placeholder="huisnummer" class="form-control here" type="text">
+                                  <input id="huisnummer" name="inputPlaats" value="<?php print($huisnummer); ?>"placeholder="Plaats" required="required"  class="form-control here" type="text">
                                 </div>
                               </div></div>
                               <div class="col-md-3">
                               <div class="form-group row">
                                 <label for="Woonplaats" class="col-4 col-form-label">Huisnummer*</label> 
                                 <div class="col-8">
-                                  <input id="Woonplaats" name="inputPlaats" value="<?php print($plaats); ?>"placeholder="Woonplaats" class="form-control here" type="text">
+                                  <input id="Woonplaats" name="inputHuisnummer" value="<?php print($huisnummer); ?>"placeholder="Huisnummer"  required="required" class="form-control here" type="text">
                                 </div>
                               </div>
                               <div class="form-group row">
                                 <label for="Postcode" class="col-4 col-form-label">Postcode*</label> 
                                 <div class="col-8">
-                                  <input id="Postcode" name="inputPostcode" value="<?php print($postcode); ?>"placeholder="Postcode" class="form-control here" type="text">
+                                  <input id="Postcode" name="inputPostcode" value="<?php print($postcode); ?>"placeholder="Postcode"  required="required" class="form-control here" type="text">
                                 </div>
                               </div></div>
                               <div class="col-md-12"style="padding-right: 0px;padding-left: 0px;">
