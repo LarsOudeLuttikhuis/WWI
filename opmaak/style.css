@@ -13,13 +13,24 @@
 .footer {
     height: 50px;
 }
+
 .form-group {
-    margin:15px;
-} 
+    margin: 15px;
+}
+
 .zoek {
     color: black;
 }
 
 .zoek:hover {
     color: black;
+}
+
+.cato {
+    height: 230px;
+    width: 220px;
+}
+
+.navbar-brand {
+    color: rgb(0, 103, 198);
 }

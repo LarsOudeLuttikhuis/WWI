@@ -85,7 +85,7 @@ function ToonCatagorieën()
         print("<div class='product-grid'>");
         print("<div class='product-image'>");
         print("<a href='producten.php?Cid=" . $catagorie["StockGroupID"] . "'>");
-        print("<img class='pic-1' src='images/" . $catagorie["StockGroupName"] . ".jpg'>");
+        print("<img class='cato' src='images/" . $catagorie["StockGroupName"] . ".jpg'>");
         print(" </a>");
         print("</div>");
         print("<div class='product-content'>");
