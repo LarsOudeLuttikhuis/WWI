@@ -44,7 +44,12 @@ function ToonProducten()
         print("</div>");
         print("<div class='product-content'>");
         print("<h3 class='title'><a href='product.php?Pid=" . $product["StockItemID"] . "'>" . $product["StockItemName"] . "</a></h3>");
-        print( "<h3 class='title'><a class='btn btn-success' href=\"bevestiging.php?nummer=".$product["StockItemID"]."\">In Winkelwagen</a></h3>");
+        echo "<form method='post'  action='Winkelwagen.php?action=add&id=". $product["StockItemID"]."'>";
+                echo "<input type='text' name='quantity' value='1' class='form-control' />";
+                echo "<input type='hidden' name='hidden_name' value=" .$product["StockItemName"].".php'>";
+                echo "<input type='hidden' name='hidden_price' value=" .$product["UnitPrice"].">";
+                echo "<input type='submit' name='add_to_cart' style='margin-top:5px;' class='btn btn-success' value='In winkelwagen'/>";
+            echo "</form>"; 
         print("</div>");
         print("</div>");
         print("</div>");
@@ -128,19 +133,18 @@ function ToonProduct()
             echo "<div class='col-md-5'>";
                 echo "<div class='row'>";
                     echo "<iframe  width='100%' height='300' src='https://www.youtube.com/embed/MrYbBcvdzIY' align=right valing=right' frameborder='0' allowfullscreen></iframe>";
-                echo "</div>";
+echo "</div>";
                 echo "<div class='row'>";
                 echo "<table class='table'>";
                 echo "<tr>";
                 echo "<th class='th'><p style='text-align:left;'>€".$product["UnitPrice"]."</p>";
-                echo "<form method='post'  action='Winkelwagen.php?action=add&id=". $product["StockItemID"].".php'>";
+                echo "<form method='post'  action='Winkelwagen.php?action=add&id=". $product["StockItemID"]."'>";
                 echo "<input type='text' name='quantity' value='1' class='form-control' />";
                 echo "<input type='hidden' name='hidden_name' value=" .$product["StockItemName"].".php'>";
-                echo "<input type='hidden' name='hidden_price' value=" .$product["UnitPrice"].".php'>";
-				echo "<input type='submit' name='add_to_cart' style='margin-top:5px;' class='btn btn-success' value='Opslaan'/>";
+                echo "<input type='hidden' name='hidden_price' value=" .$product["UnitPrice"].">";
+                echo "<input type='submit' name='add_to_cart' style='margin-top:5px;' class='btn btn-success' value='In winkelwagen'/>";
                 echo "</form>"; 
                 echo "</th> ";
-                
                 echo "</tr>";
                 echo "</table>";
                 echo "</div>";
@@ -148,6 +152,7 @@ function ToonProduct()
         echo "</div>";
     echo "</div>";
 }
+
 
 function HomeProductenOverzichtBekijken()
 {
@@ -181,6 +186,12 @@ function ToonHomeProducten()
         print("</div>");
         print("<div class='product-content'>");
         print("<h3 class='title'><a href='product.php?Pid=" . $product["StockItemID"] . ".php'>" . $product["StockItemName"] . "</a></h3>");
+        echo "<form method='post'  action='Winkelwagen.php?action=add&id=". $product["StockItemID"]."'>";
+        echo "<input type='text' name='quantity' value='1' class='form-control' />";
+        echo "<input type='hidden' name='hidden_name' value=" .$product["StockItemName"].".php'>";
+        echo "<input type='hidden' name='hidden_price' value=" .$product["UnitPrice"].">";
+        echo "<input type='submit' name='add_to_cart' style='margin-top:5px;' class='btn btn-success' value='In winkelwagen'/>";
+    echo "</form>"; 
         print("</div>");
         print("</div>");
         print("</div>");

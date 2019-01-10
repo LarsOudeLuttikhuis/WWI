@@ -16,3 +16,10 @@
 .form-group {
     margin:15px;
 } 
+.zoek {
+    color: black;
+}
+
+.zoek:hover {
+    color: black;
+}

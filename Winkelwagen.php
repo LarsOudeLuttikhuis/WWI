@@ -6,13 +6,12 @@ include_once 'Functions/sql.php';
 ?>
 <div class="jumbotron"
 <?php
-session_start();
 if(isset($_POST["add_to_cart"]))
 {
     
-    echo '<h3 class="display-4">Winkelwagen</h3>';
+    echo '<h2>Winkelwagen</h2>';
     echo ' <div style="clear:both"></div>';
-    echo ' <div class="col-md-4">';
+    echo ' <div class="col-md-12">';
   
 	if(isset($_SESSION["shopping_cart"]))
 	{
@@ -58,18 +57,13 @@ if(isset($_GET["action"]))
 			}
 		}
 	}
-}
-
-?>
-
-<?php        
-           
+}           
                     if(empty($_SESSION["shopping_cart"]))
                     {
                         echo ("<h3>Uw winkelwagen is leeg.</h3>");
                     }
                     else{
-                        echo"<h3>Order Details</h3>";
+                        echo"<h4>Order Details</h4>";
                     echo"<div class='table-responsive'>";
                     echo"<table class='table table-bordered'>";                    
 					echo" <tr>";    
@@ -99,8 +93,8 @@ if(isset($_GET["action"]))
 						}
 					?>
 					<tr>
-						<td colspan="3" align="right">Total</td>
-						<td align="right">€<?php echo number_format($total, 2); ?></td>
+						<td colspan="3" class="align-right">Total</td>
+						<td class="align-right">€<?php echo number_format($total, 2); ?></td>
 						<td></td>
 					</tr>
 					<?php
@@ -108,7 +102,15 @@ if(isset($_GET["action"]))
 					}
 					?>
 						
-				</table>
+				<table class="align-right">
+				<?php
+				echo "<form action='checkoutpagina.php?'>";
+				echo "<input type='submit' name='add_to_cart' style='margin-top:5px; float: right; margin-right: 15px;' class='align-right btn btn-success' value='Naar checkout pagina'/>";
+				echo "</form> &nbsp;&nbsp;" ;
+                echo "<form class='align-right' action='category.php?'>";
+                echo "<input type='submit' name='' style='margin-top:5px; float: right; margin-right: 15px' class='btn btn-success align-right' value='Verder winkelen'/>";
+				echo "</form>";
+				?>  </table>
 			</div>
             </div>
             <?php

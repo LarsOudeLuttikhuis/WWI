@@ -2,16 +2,35 @@
 include_once 'Functions/global.php';
 include 'navbar.php';
 include_once 'Functions/sql.php';
+
+$inputVoornaam = $inputAchternaam = $inputTussenvoegsel = $inputTelefoon = $inputStraat = $inputHuisnummer = $inputPostcode = $inputPlaats = $inputEmail = $inputWachtwoord = '';
+$sessie_email = $_SESSION["Email"];
+
+global $connectie, $resultaat;
+maakConnectiePDO();
+$email = $_SESSION["Email"];
+$sql = "SELECT * FROM gebruikers WHERE Email = '".$email."'";
+$res = $connectie->query($sql);
+
+$result = $res->fetch(\PDO::FETCH_ASSOC);
+$voornaam = $result['Voornaam'];
+$tussenvoegsels = $result['Tussenvoegsels'];
+$achternaam = $result['Achternaam'];
+$email = $result['Email'];
+$telefoon = $result['Telefoonnummer'];
+$straatnaam = $result['Straat'];
+$huisnummer = $result['Huisnummer'];
+$postcode = $result['Postcode'];
+$plaats = $result['Plaats'];
+$wachtwoord = $result['Wachtwoord'];
+
 ?>
 <div class="jumbotron"
 <?php
-session_start();
 if(isset($_POST["add_to_cart"]))
-{
-    
+{    
     echo '<h3 class="display-4">Winkelwagen</h3>';
     echo ' <div style="clear:both"></div>';
-    echo ' <div class="col-md-4">';
   
 	if(isset($_SESSION["shopping_cart"]))
 	{
@@ -26,8 +45,7 @@ if(isset($_POST["add_to_cart"]))
 				'item_quantity'		=>	$_POST["quantity"]
 			);
 			$_SESSION["shopping_cart"][$count] = $item_array;
-		}
-		else
+		}	else
 		{
 			echo '<script>alert("Item Already Added")</script>';
 		}
@@ -71,31 +89,38 @@ if(isset($_GET["action"]))
                         echo"<h3>Order Details</h3>";
                     echo"<div class='table-responsive'>";
                     echo"<table class='table table-bordered'>";                    
-                    echo" <tr>";                    
-                    echo"<th width='30%'>Item Name</th>";                    
-                    echo"<th width='20%'>Quantity</th>";                    
+					echo" <tr>";    
+					echo"<th width='20%'>Item Image</th>";                   
+                    echo"<th width='40%'>Item Name</th>";                    
+                    echo"<th width='10%'>Quantity</th>";                    
                     echo"<th width='20%'>Price</th>";                    
-                    echo"<th width=15%>Total</th>";                                    
+                    echo"<th width=15%>Total</th>";                    
+                    echo"<th width=5%>Action</th>";                    
                     echo"</tr>";  
 					if(!empty($_SESSION["shopping_cart"]))
 					{
-						$total = 0;
+						$total = $total_quantity = 0;
 						foreach($_SESSION["shopping_cart"] as $keys => $values)
 						{
 					?>
+          
 					<tr>
+						<td><img class='pic-1' src='images/240x250.png'></td>
 						<td><?php echo $values["item_name"]; ?></td>
 						<td><?php echo $values["item_quantity"]; ?></td>
 						<td>€<?php echo $values["item_price"]; ?></td>
 						<td>€<?php echo number_format($values["item_quantity"] * $values["item_price"], 2);?></td>
+						<td><a href="winkelwagen.php?action=delete&id=<?php echo $values["item_id"]; ?>"><span class="text-danger">Remove</span></a></td>
 					</tr>
 					<?php
-							$total = $total + ($values["item_quantity"] * $values["item_price"]);
+              $total = $total + ($values["item_quantity"] * $values["item_price"]);
+              $total_quantity += 1;
 						}
 					?>
 					<tr>
-						<td colspan="3" align="right">Total</td>
-						<td align="left">€<?php echo number_format($total, 2); ?></td>
+						<td colspan="3" class="align-right">Total</td>
+						<td class="align-right"class="align-right">€<?php echo number_format($total, 2); ?></td>
+						<td></td>
 					</tr>
 					<?php
                     }
@@ -112,25 +137,25 @@ if(isset($_GET["action"]))
 		        <div class="card-body">
 		            <div class="row">
 		                <div class="col-md-6">
-                        <div align="center">
+                        <div class="align-center">
 		                    <h4>Leveradres</h4>
 		                </div></div>
                         <div class="col-md-6">
-                        <div align="center">
+                        <div class="align-center">
                         <h4>Factuuradres</h4>
                         </div></div>
 		            </div>
 		            <div class="row">
 		                <div class="col-md-3">
-		                    <form method="post" action="klantpagina.php">
+                    <form method="post" action="Betalen.php">
                               <div class="form-group row">
-                                <label for="name" class="col-4 col-form-label">Straatnaam*</label> 
+                                <label for="name" class="col-4 col-form-label">Voornaam*</label> 
                                 <div class="col-8">
                                   <input id="Naam" name="inputVoornaam" placeholder="Voornaam" value="<?php print($voornaam); ?>" class="form-control here" type="text">
                                 </div>
                               </div>
                               <div class="form-group row">
-                                <label for="Tussenvoegsel" class="col-4 col-form-label">Plaats*</label> 
+                                <label for="Tussenvoegsel" class="col-4 col-form-label">Tussenvoegsel</label> 
                                 <div class="col-8">
                                   <input id="Tussenvoegsel" name="inputTussenvoegsel" value="<?php print($tussenvoegsels); ?>"placeholder="Tussenvoegsel" class="form-control here" type="text">
                                 </div>
@@ -179,19 +204,17 @@ if(isset($_GET["action"]))
                               <div class="col-md-3">
                               <div style="text-align:right;">
                               <div class="form-group row">
-                                <label for="email" class="col-4 col-form-label">Total Quantity</label> 
-                                <div class="col-8">
-                                  <input id="email" name="inputEmail" placeholder="Email" value="<?php print($email); ?>"class="form-control here" required="required" type="text">
-                                </div>
-                              </div>
-                              <div class="form-group row">
                                 <div class="offset-4 col-8">
                                 <tr>
-						<td colspan="3" align="right">Total</td>
-						<td align="right">€<?php echo number_format($total, 2); ?></td>
-						<td></td>
-					</tr>
-                                  <button name="submit" type="submit" class="btn btn-primary">Betalen</button>
+						                    <td colspan="3" class="align-right"><b>Total Price</b></td>
+					                    	<td class="align-right">€<?php print(number_format($total, 2)) ; ?></td>
+						                    <td></td>
+				                      	</tr>
+                                  <?php
+                                  echo "<form action='betalen.php?'>";
+                                  echo "<input type='submit' name='' style='margin-top:5px;' class='btn btn-success' value='Betalen'/>";
+                                  echo "</form>";
+                                  ?>
                                 </div>
                               </div>
                               </div>
