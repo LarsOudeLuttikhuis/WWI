@@ -21,11 +21,11 @@
     <ul class="nav navbar-nav">
       <li><a href="home.php">Home</a></li>
       <li><a href="contact.php">Contact</a></li>
-      <li><a href="category.php">Category</a></li>
+      <li><a href="category.php">Categorie</a></li>
       <li> <a> 
           <form action="search.php" method="GET">
           <input class="zoek"type="text" name="query" />
-          <input class="zoek"type="submit" value="Search" />
+          <input class="zoek"type="submit" value="Zoek" />
           </form>
 </a></li>
     </ul>

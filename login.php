@@ -88,18 +88,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <div class="container">
     <div class="row">
         <div class="col-lg-6">
-            <h1 class="form-heading">login Form</h1>
+            <h1 class="form-heading">login</h1>
             <div class="login-form">
                 <div class="main-div">
                     <div class="panel">
-                        <p>Please enter your email and password</p>
+                        <p>Vul email en wachtwoord in.</p>
                     </div>
                     <form id="Login" method="post" action="login.php">
                         <div class="form-group">
                             <input type="email" class="form-control" name="inputEmail" placeholder="Email Address">
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control" name="inputPassword" placeholder="Password">   
+                            <input type="password" class="form-control" name="inputPassword" placeholder="Wachtwoord">   
                         </div>
                         <div class="forgot">
                             <a href="reset.html">Forgot password?</a>
@@ -110,11 +110,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </div>
         </div> 
         <div class="col-lg-6">
-            <h1 class="form-heading">Registreer Form</h1>
+            <h1 class="form-heading">Registreer</h1>
             <div class="login-form">
                 <div class="main-div">
                     <div class="panel">
-                        <p>Please enter your email and password</p>
+                        <p>Vul uw gegevens in.</p>
                     </div>
                     <form id="Login" method="post" action="login.php">
                         <div class="row form-group">
