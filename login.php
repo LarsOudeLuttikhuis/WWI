@@ -4,7 +4,10 @@
 <?php include_once 'Functions/sql.php'?>
 <?php
 $errors = $voornaamError = $achternaamError = $straatError = $huisnummerError = $postcodeError = $plaatsError = 
-    $emailError = $passError1 = $passError2 = $pass_errors = False;
+    $emailError = $passError1 = $passError2 = $pass_errors = $login_error = False;
+
+$inputVoornaam = $inputAchternaam = $inputTussenvoegsel = $inputTelefoon = $inputStraat = $inputHuisnummer = $inputPostcode = $inputPlaats = $inputEmail = $inputWachtwoord = $inputWachtwoord2 = '';
+
 
 # Controleren of er input is vanuit de pagina.
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -19,6 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $pass = '';
             CheckLogin($email, $pass);
         }
+        $login_error = True;
     # Anders het registreerformulier afhandelen
     } else {
         # preset variables with value ''
@@ -68,8 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 # Als het geen POST request betreft:
 } else {
-    $inputVoornaam = $inputAchternaam = $inputTussenvoegsel = $inputTelefoon = $inputStraat = $inputHuisnummer = $inputPostcode = $inputPlaats = $inputEmail = $inputWachtwoord = $inputWachtwoord2 = '';
-
+    
     if (isset($_POST['inputVoornaam'])){ $inputVoornaam .= $_POST["inputVoornaam"];}
     if (isset($_POST['inputAchternaam'])){ $inputAchternaam .= $_POST["inputAchternaam"];}
     if (isset($_POST['inputTussenvoegsel'])){ $inputTussenvoegsel .= $_POST["inputTussenvoegsel"];}
@@ -101,8 +104,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <div class="form-group">
                             <input type="password" class="form-control" name="inputPassword" placeholder="Wachtwoord">   
                         </div>
+                        <?php 
+                        if ($login_error){
+                            print(" <font color='red'>Gebruikersnaam of wachtwoord is onjuist.</font> <br><br>");
+                        } 
+                        ?>
                         <div class="forgot">
-                            <a href="reset.html">Forgot password?</a>
+                            <a href="reset.html">Wachtwoord vergeten?</a>
                         </div>
                         <button type="submit" name="loginFormulier" class="btn btn-primary">Login</button>
                     </form>
