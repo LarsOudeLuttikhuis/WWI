@@ -32,7 +32,7 @@ include_once 'navbar.php';
         }
         if ($aantal_bestellingen > 0){
             $gemiddelde_besteding = $totaal_besteed / $aantal_bestellingen;
-            $gemiddelde_besteding = number_format($conversie, 2);
+            $gemiddelde_besteding = number_format($gemiddelde_besteding, 2);
             $gemiddelde_besteding = '&euro;'.$gemiddelde_besteding;
         } else {
             $gemiddelde_besteding = 'n.v.t.';
@@ -40,6 +40,7 @@ include_once 'navbar.php';
         if (!is_numeric($totaal_besteed)){
             $totaal_besteed = 'n.v.t.';
         } else {
+            $totaal_besteed = number_format($totaal_besteed, 2);
             $totaal_besteed = '&euro;'.$totaal_besteed;
         }       
     }
