@@ -91,6 +91,7 @@ if(isset($_GET["action"]))
 					<?php
 							$total = $total + ($values["item_quantity"] * $values["item_price"]);
 						}
+						$_SESSION['total_cost'] = $total;
 					?>
 					<tr>
 						<td colspan="3" class="align-right">Total</td>
