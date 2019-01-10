@@ -104,7 +104,7 @@ if(isset($_GET["action"]))
 						
 				<table class="align-right">
 				<?php
-				echo "<form action='checkoutpagina.php?'>";
+				echo "<form action='Checkoutpagina.php?'>";
 				echo "<input type='submit' name='add_to_cart' style='margin-top:5px; float: right; margin-right: 15px;' class='align-right btn btn-success' value='Naar checkout pagina'/>";
 				echo "</form> &nbsp;&nbsp;" ;
                 echo "<form class='align-right' action='category.php?'>";
